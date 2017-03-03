@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>配置和移植 | 开发文档</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/guide/sync/c/config-and-porting.html">
+  <!-- Alternative links -->
+  
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/images/favicon-21c2ba7576.png" sizes="24x24">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy-4e4f236b1d.css -->
+  <link rel="stylesheet" href="/css/navy-4e4f236b1d.css">
+  <!-- endbuild -->
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="开发文档">
+  <!-- Open Graph -->
+  <meta name="description" content="配置 SDKSDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SDK不支持配置)。
+配置条件编译选项Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中，需要配置项如下 ：
+APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tin">
+<meta property="og:type" content="website">
+<meta property="og:title" content="配置和移植">
+<meta property="og:url" content="http://yoursite.com/guide/sync/c/config-and-porting.html">
+<meta property="og:site_name" content="开发文档">
+<meta property="og:description" content="配置 SDKSDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SDK不支持配置)。
+配置条件编译选项Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中，需要配置项如下 ：
+APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tin">
+<meta property="og:image" content="http://yoursite.com/images/c_wiced-wilddog-338c3f0e81.png">
+<meta property="og:image" content="http://yoursite.com/images/c_wiced-make-85c2067ab0.png">
+<meta property="og:updated_time" content="2017-03-03T08:18:34.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置和移植">
+<meta name="twitter:description" content="配置 SDKSDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SDK不支持配置)。
+配置条件编译选项Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中，需要配置项如下 ：
+APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tin">
+<meta name="twitter:image" content="http://yoursite.com/images/c_wiced-wilddog-338c3f0e81.png">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="https://www.wilddog.com" id="logo"></a>
+    </h1>
+    <nav id="main-nav">
+      <a href="javascript:;" class="main-nav-link">概览</a>
+      <a href="javascript:;" class="main-nav-link">快速入门</a>
+      <a href="javascript:;" class="main-nav-link">完整指南</a>
+      <a href="javascript:;" class="main-nav-link">API 文档</a>
+      <a href="javascript:;" class="main-nav-link">示例代码</a>
+      <a href="javascript:;" class="main-nav-link">控制面板指南</a>
+    </nav>
+    <div class="searchbar">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+        <span class="serach-placeholder">搜索</span>
+      </div>
+    </div>
+    <div class="searchbar-inputting">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+      </div>
+      <input type="text" class="search-input" placeholder="搜索">
+      <span class="close-search"><img src="/images/close-5aac04accb.svg" alt=""></span>
+    </div>
+    <div class="header-info pull-right">
+        <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
+        <span class="user-email"></span>
+        <span class="arr-down icon-48"></span>
+        <ul class="drop-menu clearfix">
+            <li class="drop-menu-item header-item-profile col-sm-6 text-center">
+                <a href="https://www.wilddog.com/info/info" class="header-item-link">
+                    <span class="header-item-icon icon-profile">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m281 366c-2 0-4-1-6-2-2-2-2-5-2-7l15-75c0-2 1-3 2-4l129-129c19-19 52-19 71 0 10 9 15 22 15 36 0 13-5 26-15 35l-128 129c-2 1-3 2-4 2l-76 15c0 0-1 0-1 0z m22-79l-12 61 61-12 127-127c7-6 10-15 10-24 0-10-3-19-10-25-13-13-36-13-49 0z m7 73c-3 0-6-2-7-5-1-4-4-8-8-11-3-4-7-6-11-8-4-2-6-6-4-10 1-4 6-6 10-5 6 3 12 7 17 12 4 4 8 10 11 17 1 4-1 8-5 10-1 0-2 0-3 0z m47-9c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 10 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m126-126c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 9 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m-234-118l-109 0c-5 0-8-3-8-7 0-5 3-8 8-8l109 0c4 0 8 3 8 8 0 4-4 7-8 7z m-55 184c-58 0-106-46-106-103l0-85c0-57 48-103 106-103 59 0 107 46 107 103l0 85c0 57-48 103-107 103z m0-275c-50 0-91 39-91 87l0 85c0 48 41 88 91 88 50 0 91-40 91-88l0-85c0-48-41-87-91-87z m187 489l-373 0c-5 0-8-3-8-7l0-117c0-70 59-127 131-127 5 0 8 3 8 8 0 4-3 7-8 7-64 0-115 50-115 112l0 109 357 0 0-109c0-5 4-8 8-8 4 0 8 3 8 8l0 117c0 4-4 7-8 7z"></path></svg>
+                    </span>
+                    <span class="header-item-title">个人中心</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-confirm col-sm-6 text-center">
+                <a href="https://www.wilddog.com/pay/trade-entry" class="header-item-link">
+                    <span class="header-item-icon icon-confirm">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m15 188l-15 0 0-114c0-23 19-42 42-42l257 0c23 0 42 19 42 42l0 66-15 0 0-66c0-15-12-27-27-27l-257 0c-15 0-27 12-27 27z m455 286l-428 0c-23 0-42-19-42-43l0-257c0-23 19-42 42-42l428 0c23 0 42 19 42 42l0 257c0 24-19 43-42 43z m-428-327c-15 0-27 12-27 27l0 257c0 15 12 28 27 28l428 0c15 0 27-13 27-28l0-257c0-15-12-27-27-27l-428 0z m378 195c-22 0-39-18-39-39 0-22 17-39 39-39 21 0 39 17 39 39 0 21-18 39-39 39z m0-63c-14 0-24 11-24 24 0 13 10 24 24 24 13 0 24-11 24-24 0-13-11-24-24-24z"></path></svg>
+                    </span>
+                    <span class="header-item-title">财务</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-doc col-sm-6 text-center">
+                <a href="https://docs.wilddog.com/overview/index.html" class="header-item-link">
+                    <span class="header-item-icon icon-icon-v-05">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m100 232l305 0 0 17-305 0z m0 82l305 0 0 17-305 0z m0 83l305 0 0 17-305 0z m152-380c22 0 42 13 50 33 3 6 9 10 16 10l18 0 0 59-167 0 0-59 18 0c6 0 13-4 15-10 9-20 29-33 50-33m0-17c-29 0-54 18-65 43l-35 0 0 93 201 0 0-93-35 0c-11-25-36-43-66-43z m174 503l-348 0c-43 0-78-35-78-78l0-276c0-44 35-79 78-79l48 0 0 17-48 0c-34 0-61 28-61 62l0 276c0 34 27 61 61 61l348 0c34 0 62-27 62-61l0-276c0-34-28-62-62-62l-47 0 0-17 47 0c44 0 79 35 79 79l0 276c0 43-35 78-79 78z"></path></svg>
+                    </span>
+                    <span class="header-item-title">文档</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-service col-sm-6 text-center">
+                <a href="https://www.wilddog.com/account/kf5" class="header-item-link">
+                    <span class="header-item-icon icon-service">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m256 16c132 0 240 108 240 240 0 132-108 240-240 240-132 0-240-108-240-240 0-132 108-240 240-240m0-16c-141 0-256 115-256 256 0 141 115 256 256 256 141 0 256-115 256-256 0-141-115-256-256-256z m0 355c-4 0-8-4-8-8l0-24c0-35 10-54 44-78 24-15 36-35 36-59 0-36-32-64-72-64-40 0-72 29-72 64 0 5-3 8-8 8-4 0-8-3-8-8 0-44 39-80 88-80 49 0 88 35 88 80 0 30-14 54-43 72-29 22-37 35-37 65l0 24c0 4-4 8-8 8z m0 79c-4 0-8-3-8-8l0-37c0-4 4-8 8-8 4 0 8 4 8 8l0 37c0 5-4 8-8 8z"></path></svg>
+                    </span>
+                    <span class="header-item-title">客服工单</span>
+                </a>
+            </li>
+            <li class="drop-menu-item logout col-sm-12 text-center">
+                <a href="" class="header-item-link logout-btn">退出登录</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="header-user pull-right">
+        <li class="pull-left login-tab"><a href="" class="login">登录</a></li>
+        <li class="pull-right register-tab"><a href="" class="btn btn-org-empty register">免费注册</a></li>
+    </ul>
+  </div>
+</header>
+<div class="mask fadeHide"></div>
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">
+                  配置和移植
+                  <span class="edit-doc-source">
+                    <a href="https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/guide/sync/c/config-and-porting.md" class="edit-doc-link" title="改进本文">
+                    <svg version="1.1" width="16px" height="16px" viewBox="200.38 -94.272 16 16">
+                      <path fill="#999999" class="github" d="M208.38-94.272c-4.42,0-8,3.671-8,8.202c0,3.63,2.29,6.695,5.47,7.782c0.4,0.072,0.55-0.174,0.55-0.39
+                      c0-0.195-0.01-0.841-0.01-1.528c-2.01,0.379-2.53-0.502-2.69-0.964c-0.09-0.236-0.48-0.964-0.82-1.159
+                      c-0.28-0.154-0.68-0.533-0.01-0.543c0.63-0.01,1.08,0.595,1.23,0.841c0.72,1.241,1.87,0.892,2.33,0.677
+                      c0.07-0.533,0.28-0.892,0.51-1.097c-1.78-0.205-3.64-0.913-3.64-4.05c0-0.892,0.31-1.63,0.82-2.204
+                      c-0.08-0.205-0.36-1.046,0.08-2.174c0,0,0.67-0.215,2.2,0.841c0.64-0.185,1.32-0.277,2-0.277s1.36,0.092,2,0.277
+                      c1.53-1.066,2.2-0.841,2.2-0.841c0.44,1.128,0.16,1.969,0.08,2.174c0.51,0.574,0.82,1.302,0.82,2.204c0,3.148-1.87,3.845-3.65,4.05
+                      c0.29,0.256,0.54,0.748,0.54,1.517c0,1.097-0.01,1.979-0.01,2.256c0,0.215,0.15,0.472,0.55,0.39c3.256-1.127,5.449-4.258,5.45-7.782
+                      C216.38-90.601,212.8-94.272,208.38-94.272z"/>
+                    </svg><span class="article-edit-link">编辑文档</span></a>
+                  </span>
+                </h1>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="配置-SDK" class="top-heading article-heading"><a href="#配置-SDK" class="headerlink" title="配置 SDK"></a>配置 SDK</h2><p>SDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SDK不支持配置)。</p>
+<h4 id="配置条件编译选项" class="article-heading"><a href="#配置条件编译选项" class="headerlink" title="配置条件编译选项"></a>配置条件编译选项</h4><p>Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中，需要配置项如下 ：</p>
+<pre><code>APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tinydtls、ARM 官方加密库 mbedtls 和无加密 nosec;
+PORT_TYPE : 运行的平台，目前支持 Linux 和 Espressif;
+</code></pre><p>Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如 ：</p>
+<pre><code>make APP_SEC_TYPE=nosec PORT_TYPE=linux
+</code></pre><p>在其他平台中，上面的宏在 Makefile 中指定。如 WICED 平台中，Wilddog SDK被嵌入WICED编译框架。因此条件编译选项在 SDK 目录下的<code>project/wiced/wiced.mk</code>中，配置项和 Linux 平台中相似，<code>PORT_TYPE</code>设置为<code>wiced</code>。</p>
+<h4 id="配置用户参数" class="article-heading"><a href="#配置用户参数" class="headerlink" title="配置用户参数"></a>配置用户参数</h4><p>用户参数在 SDK 的 include 目录下 wilddog_config.h 中，包含如下参数：</p>
+<p><code>WILDDOG_LITTLE_ENDIAN</code> : 目标机字节序，如果为小端则该宏定义的值为1；</p>
+<p><code>WILDDOG_MACHINE_BITS</code> : 目标机位数，可为8/16/32/64；</p>
+<p><code>WILDDOG_PROTO_MAXSIZE</code> : 应用层协议数据包最大长度，其范围为0~1300；</p>
+<p><code>WILDDOG_REQ_QUEUE_NUM</code> : 请求队列的长度；</p>
+<p><code>WILDDOG_RETRANSMITE_TIME</code> : 单次请求超时时间，单位为ms，超过该值没有收到服务端回应则触发回调函数,并提示接收超时。返回码参见<code>Wilddog_Return_T</code>；</p>
+<p><code>WILDDOG_RECEIVE_TIMEOUT</code> : 接收数据最大等待时间，单位为ms。</p>
+<hr>
+
+<h2 id="移植-SDK" class="article-heading"><a href="#移植-SDK" class="headerlink" title="移植 SDK"></a>移植 SDK</h2><p>C/嵌入式 SDK 可以很容易的被移植到各个平台上。本文档以 WICED 平台此为例，说明如何移植 SDK，其他已移植平台可以参考 SDK 的 docs 目录下对应的文档，未移植平台则可以参考下面步骤。</p>
+<h4 id="将SDK拷贝到目标位置" class="article-heading"><a href="#将SDK拷贝到目标位置" class="headerlink" title="将SDK拷贝到目标位置"></a>将SDK拷贝到目标位置</h4><p>首先，将SDK解压，并拷贝到<code>WICED-SDK-3.1.2\WICED-SDK\apps</code>中，即SDK位于<code>WICED-SDK-3.1.2\WICED-SDK\apps\wilddog-client-c\</code>，注意，由于 WICED 平台不支持带 <code>-</code> 符号的文件夹，因此需要将 SDK 目录名字修改，这里修改成<code>wilddog_client_coap</code>。</p>
+<p>WICED 平台采用 WICED IDE，打开 WICED IDE，能够在工程下的<code>apps</code>目录下找到我们的  SDK。</p>
+<p><img src="/images/c_wiced-wilddog-338c3f0e81.png" alt=""></p>
+<h4 id="移植条件编译选项" class="article-heading"><a href="#移植条件编译选项" class="headerlink" title="移植条件编译选项"></a>移植条件编译选项</h4><p>WICED 平台需要用户为自己的 APP 编写 Makefile，且格式有严格要求，Makefile文件名称的前缀必须与目录名相同，以我们的例子为例，如下图：</p>
+<p><img src="/images/c_wiced-make-85c2067ab0.png" alt=""></p>
+<p>在<code>project/wiced/wiced.mk</code>中添加编译选项，并补完 Makefile，详见<code>wiced.mk</code>文件。</p>
+<blockquote class="warning"><br>  <p><strong>注意：</strong></p><br>  如果你的平台不支持自定义 Makefile，那么请根据条件编译选项，将你所需的文件拷贝到项目中，避免出现重定义。需要选择拷贝的路径有：<br></blockquote>
+
+<p><code>APP_PROTO_TYPE</code> : src/networking 目录下，根据编译选项拷贝文件夹以及其中的文件；</p>
+<p><code>APP_SEC_TYPE</code> ： src/secure 目录下，根据编译选项拷贝文件夹以及其中的文件，同时，增加全局宏定义 WILDDOG_PORT ，根据选用的加密方式不同值不相同，nosec 时 WILDDOG_PORT值设为5683,否则设为 5684；</p>
+<p><code>PORT_TYPE</code> ： platform 目录下，根据编译选项拷贝文件夹以及其中的文件，如果你的平台不属于<code>linux</code>或<code>wiced</code>等已支持平台，那么你需要自己实现平台相关的函数接口。</p>
+<h4 id="实现平台相关代码" class="article-heading"><a href="#实现平台相关代码" class="headerlink" title="实现平台相关代码"></a>实现平台相关代码</h4><p>需要实现的平台相关函数接口位于include/wilddog_port.h，如下：<br><figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">wilddog_gethostbyname</span><span class="params">(Wilddog_Address_T* addr,<span class="keyword">char</span>* host)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">wilddog_openSocket</span><span class="params">(<span class="keyword">int</span>* socketId)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">wilddog_closeSocket</span><span class="params">(<span class="keyword">int</span> socketId)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">wilddog_send</span><span class="params">(<span class="keyword">int</span> socketId,Wilddog_Address_T*,<span class="keyword">void</span>* tosend,s32 tosendLength)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">wilddog_receive</span><span class="params">(<span class="keyword">int</span> socketId,Wilddog_Address_T*,<span class="keyword">void</span>* toreceive,s32 toreceiveLength, s32 timeout)</span></span>;</div></pre></td></tr></table></figure></p>
+<blockquote class="warning"><br>  <p><strong>注意：</strong></p><br>  tinydtls 以及 mbedtls 因为涉及底层，如果需要移植，可能要针对这两个库进行一些调试工作。<br></blockquote>
+
+
+                <time class="article-footer-updated" datetime="2017-03-03T08:18:34.846Z" itemprop="dateModified">上次更新：2017-03-03</time>
+              </div>
+              <div class="toc-content">
+                <aside id="article-toc" role="navigation">
+                  <div class="toc-scroll-content">
+                    <div class="toc-inner">
+                      <span class="slide-dot"></span>
+                      <div id="article-toc-inner">
+                        <strong class="sidebar-title">目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-SDK"><span class="toc-text">配置 SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置条件编译选项"><span class="toc-text">配置条件编译选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置用户参数"><span class="toc-text">配置用户参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移植-SDK"><span class="toc-text">移植 SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将SDK拷贝到目标位置"><span class="toc-text">将SDK拷贝到目标位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移植条件编译选项"><span class="toc-text">移植条件编译选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现平台相关代码"><span class="toc-text">实现平台相关代码</span></a></li></ol></li></ol></li></ol>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+                <div class="toc-link-title"></div>
+              </div>
+              <footer class="article-footer">
+                <a href="/guide/sync/ios/advance-feature.html" class="article-footer-prev" title="高级特性"><img src='/images/arr-left-1b2a378a2f.svg' class='arr-icon'><div class='page-title'><div>上一节：</div>高级特性 </div></a><a href="/guide/sync/c/save-data.html" class="article-footer-next" title="数据操作"><div class='page-title'><div class='text-right'>下一节：</div>数据操作</div><img src='/images/arr-right-e4720f74a4.svg' class='arr-icon'></a>
+              </footer>
+              <div class="novice novice-register text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">野狗新手？</div>
+                <div class="register-text">立即注册，为你提供安全可靠的实时通信云服务。</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/my-account/signup?next=https://docs.wilddog.com" class="btn btn-org-full register-link">免费注册</a>
+                </div>
+              </div>
+              <div class="novice novice-help text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">没找到需要的文档？</div>
+                <div class="register-text">你可以提交工单反馈 或 阅读常见问题</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/account/kf5" target="_blank" class="btn btn-org-empty service-link">客服工单</a><a href="https://wilddog.kf5.com/hc" target="_blank" class="btn btn-gray question-link">常见问题</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+  <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="sidebar-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/concept.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/web/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/web/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/web/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/web/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/android/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/android/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/android/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/android/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/ios/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title select">C/嵌入式</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/c/config-and-porting.html" class="sidebar-link current" title= 配置和移植><span class="sidebar-link-text">配置和移植</span></a></li><li class='sublist-item'><a href="/guide/sync/c/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/c/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/c/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rest/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/retrieve-data.html" class="sidebar-link" title= 数据查询><span class="sidebar-link-text">数据查询</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/library.html" class="sidebar-link" title= 其他平台><span class="sidebar-link-text">其他平台</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">规则表达式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rules/introduce.html" class="sidebar-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/guide.html" class="sidebar-link" title= 指南><span class="sidebar-link-text">指南</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/access.html" class="sidebar-link" title= 读写权限控制><span class="sidebar-link-text">读写权限控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/auth.html" class="sidebar-link" title= 用户访问控制><span class="sidebar-link-text">用户访问控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/validate.html" class="sidebar-link" title= 数据校验><span class="sidebar-link-text">数据校验</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/index.html" class="sidebar-link" title= 数据索引><span class="sidebar-link-text">数据索引</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/webhook.html" class="sidebar-link" title= Webhook><span class="sidebar-link-text">Webhook</span></a><li class='sublist-item'><strong class="sidebar-title">最佳实践</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/bestpractice/structure-data.html" class="sidebar-link" title= 组织数据><span class="sidebar-link-text">组织数据</span></a></li><li class='sublist-item'><a href="/guide/sync/bestpractice/offline.html" class="sidebar-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/data-limit.html" class="sidebar-link" title= 数据限制><span class="sidebar-link-text">数据限制</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/core.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/web/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/web/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/web/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/android/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/android/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/android/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/ios/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/android/intialize.html" class="sidebar-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/android/users.html" class="sidebar-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/android/message.html" class="sidebar-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/android/unread.html" class="sidebar-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/android/group.html" class="sidebar-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/android/push.html" class="sidebar-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/ios/intialize.html" class="sidebar-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/ios/users.html" class="sidebar-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/ios/message.html" class="sidebar-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/ios/unread.html" class="sidebar-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/ios/group.html" class="sidebar-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/ios/push.html" class="sidebar-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sms/vertification.html" class="sidebar-link" title= 验证码短信><span class="sidebar-link-text">验证码短信</span></a><li class='sublist-item'><a href="/guide/sms/notify.html" class="sidebar-link" title= 通知类短信><span class="sidebar-link-text">通知类短信</span></a><li class='sublist-item'><a href="/guide/sms/signature.html" class="sidebar-link" title= 接口验证机制><span class="sidebar-link-text">接口验证机制</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/core/concept.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/web/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/web/phone.html" class="sidebar-link" title= 手机登录><span class="sidebar-link-text">手机登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixinpublic.html" class="sidebar-link" title= 微信公众号登录><span class="sidebar-link-text">微信公众号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/android/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/android/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/phone.html" class="sidebar-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/ios/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/phone.html" class="sidebar-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Server</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/server/introduction.html" class="sidebar-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/auth/server/server.html" class="sidebar-link" title= 使用 Server SDK 进行认证><span class="sidebar-link-text">使用 Server SDK 进行认证</span></a></li></ul></li></li></ul></li></ul>
+  <div class="old-doc"><a href="https://z.wilddog.com/overview/introduction?_ga=1.201538585.947321584.1476265715" class="old-doc-link">回到旧版文档<span class="back-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9.715" height="9.078" viewBox="0 0 9.715 9.078"><defs><path id="a" d="M0 0h9.715v9.078H0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.365.35v5.624H.741"/><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.104 8.728L.35 5.974l2.754-2.755"/></svg></span></a></div>
+  </div>
+</aside>
+    </div>
+    <div class="back-top-content">
+      <div class="back-top"></div>
+    </div>
+  </div>
+</div>
+<div class="feed-back">
+  <img src="/images/feed-bg-3b9131ccb1.svg" class="feed-bg" alt="">
+  <div class="feed-content">
+    <div class="feed-text-content clearfix">
+      <img src="/images/feed-icon-af0ea8c62e.svg" alt="">
+      <span class="feed-text">期待收到你的反馈，帮助我们改进文档。</span>
+    </div>
+    <a href="https://www.wenjuan.com/s/jQN7Bj/" target='_blank' class="feed-link">参与调研</a>
+  </div>
+  <span class="close-feed"><img src="/images/close-5aac04accb.svg" alt=""></span>
+</div>
+<!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/public-83c5dacb8d.js"></script>
+<script src="/js/localstorage-c4e8573405.js"></script>
+<script src="/js/toc-9ea2afca1c.js"></script>
+<script src="/js/mobile_nav-0e25d5740c.js"></script>
+<script src="/js/ui-4870e10579.js"></script>
+<script src="/js/search-b5357de5c7.js"></script>
+<!-- endbuild -->
+
+<!-- Google Tag Manager -->
+<script>
+window.addEventListener('load', function() {
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.wilddog.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-53PGC2');
+})
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Algolia -->
+<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
+
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+  <!--   <div id="footer-copyright">
+    &copy; 2017 <a href="https://www.wilddog.com/" target="_blank">野狗</a><br>
+  </div> -->
+    <div id="footer-links">
+		<a href="/overview/index.html" class="footer-link">文档</a>
+		<a href="https://www.wilddog.com/download" class="footer-link">SDK下载</a>
+		<a href="https://www.wilddog.com/product/pricing" class="footer-link">价格</a>
+		<a href="https://life.wilddog.com/wilddog-contact.html" class="footer-link">联系我们</a>
+		<a href="https://wilddog.kf5.com/user/login/?_ga=1.257821899.1360428381.1464868258" class="footer-link">客服工单</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="mobile-nav-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/concept.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/web/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/web/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/web/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/web/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/android/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/android/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/android/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/android/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/ios/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title select">C/嵌入式</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/c/config-and-porting.html" class="mobile-nav-link current" title= 配置和移植><span class="sidebar-link-text">配置和移植</span></a></li><li class='sublist-item'><a href="/guide/sync/c/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/c/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/c/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rest/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/retrieve-data.html" class="mobile-nav-link" title= 数据查询><span class="sidebar-link-text">数据查询</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/library.html" class="mobile-nav-link" title= 其他平台><span class="sidebar-link-text">其他平台</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">规则表达式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rules/introduce.html" class="mobile-nav-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/guide.html" class="mobile-nav-link" title= 指南><span class="sidebar-link-text">指南</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/access.html" class="mobile-nav-link" title= 读写权限控制><span class="sidebar-link-text">读写权限控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/auth.html" class="mobile-nav-link" title= 用户访问控制><span class="sidebar-link-text">用户访问控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/validate.html" class="mobile-nav-link" title= 数据校验><span class="sidebar-link-text">数据校验</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/index.html" class="mobile-nav-link" title= 数据索引><span class="sidebar-link-text">数据索引</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/webhook.html" class="mobile-nav-link" title= Webhook><span class="sidebar-link-text">Webhook</span></a><li class='sublist-item'><strong class="mobile-nav-title">最佳实践</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/bestpractice/structure-data.html" class="mobile-nav-link" title= 组织数据><span class="sidebar-link-text">组织数据</span></a></li><li class='sublist-item'><a href="/guide/sync/bestpractice/offline.html" class="mobile-nav-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/data-limit.html" class="mobile-nav-link" title= 数据限制><span class="sidebar-link-text">数据限制</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/core.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/web/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/web/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/web/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/android/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/android/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/android/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/ios/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/android/intialize.html" class="mobile-nav-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/android/users.html" class="mobile-nav-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/android/message.html" class="mobile-nav-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/android/unread.html" class="mobile-nav-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/android/group.html" class="mobile-nav-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/android/push.html" class="mobile-nav-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/ios/intialize.html" class="mobile-nav-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/ios/users.html" class="mobile-nav-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/ios/message.html" class="mobile-nav-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/ios/unread.html" class="mobile-nav-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/ios/group.html" class="mobile-nav-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/ios/push.html" class="mobile-nav-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sms/vertification.html" class="mobile-nav-link" title= 验证码短信><span class="sidebar-link-text">验证码短信</span></a><li class='sublist-item'><a href="/guide/sms/notify.html" class="mobile-nav-link" title= 通知类短信><span class="sidebar-link-text">通知类短信</span></a><li class='sublist-item'><a href="/guide/sms/signature.html" class="mobile-nav-link" title= 接口验证机制><span class="sidebar-link-text">接口验证机制</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/core/concept.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/web/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/web/phone.html" class="mobile-nav-link" title= 手机登录><span class="sidebar-link-text">手机登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixinpublic.html" class="mobile-nav-link" title= 微信公众号登录><span class="sidebar-link-text">微信公众号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/android/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/android/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/phone.html" class="mobile-nav-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/ios/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/phone.html" class="mobile-nav-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Server</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/server/introduction.html" class="mobile-nav-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/auth/server/server.html" class="mobile-nav-link" title= 使用 Server SDK 进行认证><span class="sidebar-link-text">使用 Server SDK 进行认证</span></a></li></ul></li></li></ul></li></ul>
+    
+  </div>
+
+</nav>
+</body>
+</html>

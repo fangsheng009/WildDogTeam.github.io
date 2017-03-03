@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>WDGSyncReference | 开发文档</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/api/sync/ios/WDGSyncReference.html">
+  <!-- Alternative links -->
+  
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/images/favicon-21c2ba7576.png" sizes="24x24">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy-4e4f236b1d.css -->
+  <link rel="stylesheet" href="/css/navy-4e4f236b1d.css">
+  <!-- endbuild -->
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="开发文档">
+  <!-- Open Graph -->
+  <meta name="description" content="用于 Wilddog Sync 操作数据和读取数据。
+属性app定义
+@property (weak, readonly, nonatomic) WDGApp *app
+说明
+WDGSync 拥有的 WDGApp 实例。
+
+
+parent定义
+@property (strong, readonly, nonatomic) WDGSyncReference *parent
+说明
+获取父节点的引用。如">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WDGSyncReference">
+<meta property="og:url" content="http://yoursite.com/api/sync/ios/WDGSyncReference.html">
+<meta property="og:site_name" content="开发文档">
+<meta property="og:description" content="用于 Wilddog Sync 操作数据和读取数据。
+属性app定义
+@property (weak, readonly, nonatomic) WDGApp *app
+说明
+WDGSync 拥有的 WDGApp 实例。
+
+
+parent定义
+@property (strong, readonly, nonatomic) WDGSyncReference *parent
+说明
+获取父节点的引用。如">
+<meta property="og:updated_time" content="2017-03-03T08:18:34.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WDGSyncReference">
+<meta name="twitter:description" content="用于 Wilddog Sync 操作数据和读取数据。
+属性app定义
+@property (weak, readonly, nonatomic) WDGApp *app
+说明
+WDGSync 拥有的 WDGApp 实例。
+
+
+parent定义
+@property (strong, readonly, nonatomic) WDGSyncReference *parent
+说明
+获取父节点的引用。如">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="https://www.wilddog.com" id="logo"></a>
+    </h1>
+    <nav id="main-nav">
+      <a href="javascript:;" class="main-nav-link">概览</a>
+      <a href="javascript:;" class="main-nav-link">快速入门</a>
+      <a href="javascript:;" class="main-nav-link">完整指南</a>
+      <a href="javascript:;" class="main-nav-link">API 文档</a>
+      <a href="javascript:;" class="main-nav-link">示例代码</a>
+      <a href="javascript:;" class="main-nav-link">控制面板指南</a>
+    </nav>
+    <div class="searchbar">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+        <span class="serach-placeholder">搜索</span>
+      </div>
+    </div>
+    <div class="searchbar-inputting">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+      </div>
+      <input type="text" class="search-input" placeholder="搜索">
+      <span class="close-search"><img src="/images/close-5aac04accb.svg" alt=""></span>
+    </div>
+    <div class="header-info pull-right">
+        <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
+        <span class="user-email"></span>
+        <span class="arr-down icon-48"></span>
+        <ul class="drop-menu clearfix">
+            <li class="drop-menu-item header-item-profile col-sm-6 text-center">
+                <a href="https://www.wilddog.com/info/info" class="header-item-link">
+                    <span class="header-item-icon icon-profile">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m281 366c-2 0-4-1-6-2-2-2-2-5-2-7l15-75c0-2 1-3 2-4l129-129c19-19 52-19 71 0 10 9 15 22 15 36 0 13-5 26-15 35l-128 129c-2 1-3 2-4 2l-76 15c0 0-1 0-1 0z m22-79l-12 61 61-12 127-127c7-6 10-15 10-24 0-10-3-19-10-25-13-13-36-13-49 0z m7 73c-3 0-6-2-7-5-1-4-4-8-8-11-3-4-7-6-11-8-4-2-6-6-4-10 1-4 6-6 10-5 6 3 12 7 17 12 4 4 8 10 11 17 1 4-1 8-5 10-1 0-2 0-3 0z m47-9c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 10 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m126-126c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 9 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m-234-118l-109 0c-5 0-8-3-8-7 0-5 3-8 8-8l109 0c4 0 8 3 8 8 0 4-4 7-8 7z m-55 184c-58 0-106-46-106-103l0-85c0-57 48-103 106-103 59 0 107 46 107 103l0 85c0 57-48 103-107 103z m0-275c-50 0-91 39-91 87l0 85c0 48 41 88 91 88 50 0 91-40 91-88l0-85c0-48-41-87-91-87z m187 489l-373 0c-5 0-8-3-8-7l0-117c0-70 59-127 131-127 5 0 8 3 8 8 0 4-3 7-8 7-64 0-115 50-115 112l0 109 357 0 0-109c0-5 4-8 8-8 4 0 8 3 8 8l0 117c0 4-4 7-8 7z"></path></svg>
+                    </span>
+                    <span class="header-item-title">个人中心</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-confirm col-sm-6 text-center">
+                <a href="https://www.wilddog.com/pay/trade-entry" class="header-item-link">
+                    <span class="header-item-icon icon-confirm">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m15 188l-15 0 0-114c0-23 19-42 42-42l257 0c23 0 42 19 42 42l0 66-15 0 0-66c0-15-12-27-27-27l-257 0c-15 0-27 12-27 27z m455 286l-428 0c-23 0-42-19-42-43l0-257c0-23 19-42 42-42l428 0c23 0 42 19 42 42l0 257c0 24-19 43-42 43z m-428-327c-15 0-27 12-27 27l0 257c0 15 12 28 27 28l428 0c15 0 27-13 27-28l0-257c0-15-12-27-27-27l-428 0z m378 195c-22 0-39-18-39-39 0-22 17-39 39-39 21 0 39 17 39 39 0 21-18 39-39 39z m0-63c-14 0-24 11-24 24 0 13 10 24 24 24 13 0 24-11 24-24 0-13-11-24-24-24z"></path></svg>
+                    </span>
+                    <span class="header-item-title">财务</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-doc col-sm-6 text-center">
+                <a href="https://docs.wilddog.com/overview/index.html" class="header-item-link">
+                    <span class="header-item-icon icon-icon-v-05">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m100 232l305 0 0 17-305 0z m0 82l305 0 0 17-305 0z m0 83l305 0 0 17-305 0z m152-380c22 0 42 13 50 33 3 6 9 10 16 10l18 0 0 59-167 0 0-59 18 0c6 0 13-4 15-10 9-20 29-33 50-33m0-17c-29 0-54 18-65 43l-35 0 0 93 201 0 0-93-35 0c-11-25-36-43-66-43z m174 503l-348 0c-43 0-78-35-78-78l0-276c0-44 35-79 78-79l48 0 0 17-48 0c-34 0-61 28-61 62l0 276c0 34 27 61 61 61l348 0c34 0 62-27 62-61l0-276c0-34-28-62-62-62l-47 0 0-17 47 0c44 0 79 35 79 79l0 276c0 43-35 78-79 78z"></path></svg>
+                    </span>
+                    <span class="header-item-title">文档</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-service col-sm-6 text-center">
+                <a href="https://www.wilddog.com/account/kf5" class="header-item-link">
+                    <span class="header-item-icon icon-service">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m256 16c132 0 240 108 240 240 0 132-108 240-240 240-132 0-240-108-240-240 0-132 108-240 240-240m0-16c-141 0-256 115-256 256 0 141 115 256 256 256 141 0 256-115 256-256 0-141-115-256-256-256z m0 355c-4 0-8-4-8-8l0-24c0-35 10-54 44-78 24-15 36-35 36-59 0-36-32-64-72-64-40 0-72 29-72 64 0 5-3 8-8 8-4 0-8-3-8-8 0-44 39-80 88-80 49 0 88 35 88 80 0 30-14 54-43 72-29 22-37 35-37 65l0 24c0 4-4 8-8 8z m0 79c-4 0-8-3-8-8l0-37c0-4 4-8 8-8 4 0 8 4 8 8l0 37c0 5-4 8-8 8z"></path></svg>
+                    </span>
+                    <span class="header-item-title">客服工单</span>
+                </a>
+            </li>
+            <li class="drop-menu-item logout col-sm-12 text-center">
+                <a href="" class="header-item-link logout-btn">退出登录</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="header-user pull-right">
+        <li class="pull-left login-tab"><a href="" class="login">登录</a></li>
+        <li class="pull-right register-tab"><a href="" class="btn btn-org-empty register">免费注册</a></li>
+    </ul>
+  </div>
+</header>
+<div class="mask fadeHide"></div>
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">
+                  WDGSyncReference
+                  <span class="edit-doc-source">
+                    <a href="https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/api/sync/ios/WDGSyncReference.md" class="edit-doc-link" title="改进本文">
+                    <svg version="1.1" width="16px" height="16px" viewBox="200.38 -94.272 16 16">
+                      <path fill="#999999" class="github" d="M208.38-94.272c-4.42,0-8,3.671-8,8.202c0,3.63,2.29,6.695,5.47,7.782c0.4,0.072,0.55-0.174,0.55-0.39
+                      c0-0.195-0.01-0.841-0.01-1.528c-2.01,0.379-2.53-0.502-2.69-0.964c-0.09-0.236-0.48-0.964-0.82-1.159
+                      c-0.28-0.154-0.68-0.533-0.01-0.543c0.63-0.01,1.08,0.595,1.23,0.841c0.72,1.241,1.87,0.892,2.33,0.677
+                      c0.07-0.533,0.28-0.892,0.51-1.097c-1.78-0.205-3.64-0.913-3.64-4.05c0-0.892,0.31-1.63,0.82-2.204
+                      c-0.08-0.205-0.36-1.046,0.08-2.174c0,0,0.67-0.215,2.2,0.841c0.64-0.185,1.32-0.277,2-0.277s1.36,0.092,2,0.277
+                      c1.53-1.066,2.2-0.841,2.2-0.841c0.44,1.128,0.16,1.969,0.08,2.174c0.51,0.574,0.82,1.302,0.82,2.204c0,3.148-1.87,3.845-3.65,4.05
+                      c0.29,0.256,0.54,0.748,0.54,1.517c0,1.097-0.01,1.979-0.01,2.256c0,0.215,0.15,0.472,0.55,0.39c3.256-1.127,5.449-4.258,5.45-7.782
+                      C216.38-90.601,212.8-94.272,208.38-94.272z"/>
+                    </svg><span class="article-edit-link">编辑文档</span></a>
+                  </span>
+                </h1>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <p>用于 Wilddog Sync 操作数据和读取数据。</p>
+<h2 id="属性" class="article-heading"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="app" class="article-heading"><a href="#app" class="headerlink" title="app"></a>app</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) WDGApp *app</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>WDGSync 拥有的 WDGApp 实例。</p>
+<p><br></p>
+<hr>
+<h3 id="parent" class="article-heading"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) WDGSyncReference *parent</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获取父节点的引用。如果当前节点就是 root 节点，方法执行后返回的依然是 root 节点的引用。</p>
+<p><br></p>
+<hr>
+<h3 id="root" class="article-heading"><a href="#root" class="headerlink" title="root"></a>root</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) WDGSyncReference *root</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获得 WDGSyncReference 根节点的引用。</p>
+<p><br></p>
+<hr>
+<h3 id="key" class="article-heading"><a href="#key" class="headerlink" title="key"></a>key</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *key</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获得当前路径下节点的名称。</p>
+<p><br></p>
+<hr>
+<h3 id="URL" class="article-heading"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>* URL</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获取这个引用所属的指向 Wilddog Sync 数据库节点的 URL。</p>
+<p><br></p>
+<hr>
+<h3 id="sync" class="article-heading"><a href="#sync" class="headerlink" title="sync"></a>sync</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nonatomic</span>) WDGSync *sync</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>根据这个 WDGSyncReference 获得的 WDGSync 实例。</p>
+<p><br></p>
+<hr>
+<h2 id="方法" class="article-heading"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="–-child" class="article-heading"><a href="#–-child" class="headerlink" title="– child:"></a>– child:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncReference *)child:(<span class="built_in">NSString</span> *)pathString</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获得一个在指定路径节点处的 WDGSyncReference 对象。<br>相对路径可以是一个简单的节点名字（例如，’fred’），或者是一个更深的路径（例如，’fred/name/first’）</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pathString</td>
+<td>从这个节点到要设定的子节点的相对路径  </td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>指定节点位置的 WDGSyncReference 实例。<br><br></p>
+<hr>
+<h3 id="–-childByAppendingPath" class="article-heading"><a href="#–-childByAppendingPath" class="headerlink" title="– childByAppendingPath:"></a>– childByAppendingPath:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncReference *)childByAppendingPath:(<span class="built_in">NSString</span> *)pathString</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>childByAppendingPath: 已废弃, 使用 child: 代替。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pathString</td>
+<td>从这个节点到要设定的子节点的相对路径  </td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>指定节点位置的 WDGSyncReference 实例。<br><br></p>
+<hr>
+<h3 id="–-childByAutoId" class="article-heading"><a href="#–-childByAutoId" class="headerlink" title="– childByAutoId"></a>– childByAutoId</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncReference *) childByAutoId</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>生成一个唯一名字的子节点，并且返回一个 WDGSyncReference 实例。</p>
+<p><strong>返回值</strong></p>
+<p>生成的唯一节点位置的 WDGSyncReference 实例。</p>
+<p><br></p>
+<hr>
+<h3 id="–-setValue" class="article-heading"><a href="#–-setValue" class="headerlink" title="– setValue:"></a>– setValue:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">id</span>)value</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>设置一个节点的值。</p>
+<p>往当前路径写入一个值，这将会覆盖当前路径和子路径的所有数据。</p>
+<p> 支持的数据类型:</p>
+<ul>
+<li>NSString – @”Hello World”</li>
+<li>NSNumber (包括 BOOL 类型) – @YES, @43, @4.333</li>
+<li>NSDictionary – @{@”key”: @”value”, @”nested”: @{@”another”: @”value”} }</li>
+<li><p>NSArray</p>
+<p>传送一个 nil 或者 null 对象相当于调用 <code>removeValue</code>;<br>这个路径的所有数据和子路径的数据都将被删除.</p>
+<p><code>setValue:</code> 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 <code>setValue:andPriority:</code></p>
+</li>
+</ul>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>要写入的值 </td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-setValue-withCompletionBlock" class="article-heading"><a href="#–-setValue-withCompletionBlock" class="headerlink" title="– setValue:withCompletionBlock:"></a>– setValue:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setValue:(<span class="keyword">id</span>)value withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 setValue 方法类似：增加了一个 block，当写操作完成之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>要写入的值</td>
+</tr>
+<tr>
+<td>block</td>
+<td>写操作提交到 Wilddog Sync 数据库服务器后回调的 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-setValue-andPriority" class="article-heading"><a href="#–-setValue-andPriority" class="headerlink" title="– setValue:andPriority:"></a>– setValue:andPriority:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setValue:(<span class="keyword">id</span>)value andPriority:(<span class="keyword">id</span>)priority</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>和 setValue: 方法类似，只是为要写入的数值添加了一个优先级。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>要写入的值</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>这个数值的优先级</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-setValue-andPriority-withCompletionBlock" class="article-heading"><a href="#–-setValue-andPriority-withCompletionBlock" class="headerlink" title="– setValue:andPriority:withCompletionBlock:"></a>– setValue:andPriority:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setValue:(<span class="keyword">id</span>)value andPriority:(<span class="keyword">id</span>)priority withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 – setValue:andPriority: 方法类似：增加了一个 block，当写操作完成之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>要写入的值</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>这个数值的优先级</td>
+</tr>
+<tr>
+<td>block</td>
+<td>写操作提交到 Wilddog Sync 数据库服务器后回调的 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-removeValue" class="article-heading"><a href="#–-removeValue" class="headerlink" title="– removeValue"></a>– removeValue</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) removeValue</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>删除当前节点，效果等同于 setValue:nil。<br>如果当前节点有子节点，子节点会被全部删除。<br>当删除被提交到 Wilddog Sync 数据库后，删除的效果会立即显现。</p>
+<p><br></p>
+<hr>
+<h3 id="–-removeValueWithCompletionBlock" class="article-heading"><a href="#–-removeValueWithCompletionBlock" class="headerlink" title="– removeValueWithCompletionBlock:"></a>– removeValueWithCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) removeValueWithCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 removeValue 方法类似：增加了一个 block，当删除操作完成之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>删除操作提交到 Wilddog Sync 数据库服务器后，这个 block 会被回调</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-setPriority" class="article-heading"><a href="#–-setPriority" class="headerlink" title="– setPriority:"></a>– setPriority:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setPriority:(<span class="keyword">id</span>)priority</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>设置 Wilddog Sync 当前节点的优先级。<br>优先级被用来排序（如果没有指定优先级，子节点按照key排序）。  </p>
+<p>你不能对一个不存在的节点设置优先级。因此，当为新数据设置指定的优先级的时候，使用 setValue:andPriority: ，当为已存在的数据指定优先级的时候，使用 setPriority:。<br>节点按照如下规则排序：<br>没有 priority 的排最先。<br>有数字 priority 的次之，按照数值排序(从小到大)。<br>有字符串 priority 的排最后，按照字母表的顺序排列。<br>当两个子节点有相同的 priority（包括没有 priority），它们按照名字进行排列，数字排在最先（按数值大小排序），其他的跟在后面(以字典序排序)。<br>注意：数值优先级被作为 IEEE 754双精度浮点型数字进行解析和排序，Key 以 String 类型进行存储，只有当它能被解析成32位整型数字时被当作数字来处理。  </p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>priority</td>
+<td>指定节点的优先级</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-setPriority-withCompletionBlock" class="article-heading"><a href="#–-setPriority-withCompletionBlock" class="headerlink" title="– setPriority:withCompletionBlock:"></a>– setPriority:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setPriority:(<span class="keyword">id</span>)priority withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>和 setPriority: 方法类似，增加了一个 block，当 priority 操作被提交到 Wilddog Sync 数据库服务器之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>priority</td>
+<td>指定节点的优先级</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当 priority 操作被提交到 Wilddog Sync 数据库服务器之后，回调的 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-updateChildValues" class="article-heading"><a href="#–-updateChildValues" class="headerlink" title="– updateChildValues:"></a>– updateChildValues:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) updateChildValues:(<span class="built_in">NSDictionary</span> *)values</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>将输入对象的子节点合并到当前数据中。</p>
+<p>不存在的子节点将会被新增，存在子节点将会被替换。<br>与 set 操作不同，update 不会直接覆盖原来的节点，而是将 value 中的所有子节点插入到已有的节点中，如果已有的节点中已经有同名子节点，则覆盖原有的子节点。<br>例如： update 之前 {“l1”:”on”,”l3”:”off”} ,value={“l1”:”off”,”l2”:”on”} update 后的数据是 {“l1”:”off”,”l2”:”on”,”l3”:”off”}。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>values</td>
+<td>包含要合并子节点的对象</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-updateChildValues-withCompletionBlock" class="article-heading"><a href="#–-updateChildValues-withCompletionBlock" class="headerlink" title="– updateChildValues:withCompletionBlock:"></a>– updateChildValues:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) updateChildValues:(<span class="built_in">NSDictionary</span> *)values withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 updateChildValues 方法类似：增加了一个 block，当更新操作完成之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>values</td>
+<td>包含要合并子节点的对象</td>
+</tr>
+<tr>
+<td>block</td>
+<td>updateChildValues 操作提交到 Wilddog Sync 数据库服务器后，返回的 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-observeEventType-withBlock" class="article-heading"><a href="#–-observeEventType-withBlock" class="headerlink" title="– observeEventType:withBlock:"></a>– observeEventType:withBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncHandle) observeEventType:(WDGDataEventType)eventType withBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>observeEventType:withBlock: 用于监听一个指定节点的数据变化。<br>这是从 Wilddog Sync 数据库服务器读取数据的主要方式。<br>在任何时刻，只要被监听的数据发生变化，这个 block 就会被触发。</p>
+<p>可以用 removeObserverWithHandle: 方法停止监听数据的变化。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到某事件时，回调 block</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block</p>
+<p><br></p>
+<hr>
+<h3 id="–-observeEventType-andPreviousSiblingKeyWithBlock" class="article-heading"><a href="#–-observeEventType-andPreviousSiblingKeyWithBlock" class="headerlink" title="– observeEventType:andPreviousSiblingKeyWithBlock:"></a>– observeEventType:andPreviousSiblingKeyWithBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncHandle) observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot, <span class="built_in">NSString</span>* prevKey))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>observeEventType:andPreviousSiblingKeyWithBlock: 用于监听在特定节点处的数据的变化。<br>这是从 Wilddog Sync 数据库读取数据的主要方法。block 当监听到初始数据和初始数据有改变时触发。<br>此外， 对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved, 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。 </p>
+<p>可以用 removeObserverWithHandle: 方法去停止接受数据更新的监听。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block</p>
+<p><br></p>
+<hr>
+<h3 id="–-observeEventType-withBlock-withCancelBlock" class="article-heading"><a href="#–-observeEventType-withBlock-withCancelBlock" class="headerlink" title="– observeEventType:withBlock:withCancelBlock:"></a>– observeEventType:withBlock:withCancelBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncHandle) observeEventType:(WDGDataEventType)eventType withBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot))block withCancelBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error))cancelBlock</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>observeEventType:withBlock: 用于监听一个指定节点的数据变化。<br>这是从 Wilddog Sync 数据库服务器读取数据的主要方式。<br>如果你没有读取权限，就接受不到新的事件，这时 cancelBlock 就会被调用。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到某事件时，回调 block</td>
+</tr>
+<tr>
+<td>cancelBlock</td>
+<td>如果客户端没有权限去接受这些事件，这个 block 将会被调用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block</p>
+<p><br></p>
+<hr>
+<h3 id="–-observeEventType-andPreviousSiblingKeyWithBlock-withCancelBlock" class="article-heading"><a href="#–-observeEventType-andPreviousSiblingKeyWithBlock-withCancelBlock" class="headerlink" title="– observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:"></a>– observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (WDGSyncHandle) observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot, <span class="built_in">NSString</span>* prevKey))block withCancelBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error))cancelBlock</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>observeEventType:andPreviousSiblingKeyWithBlock: 用于监听在特定节点处的数据的变化。<br>这是从 Wilddog Sync 数据库读取数据的主要方法。block 当监听到初始数据和初始数据有改变时触发。 此外， 对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved, 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。</p>
+<p>由于你没有读取权限，就接受不到新的事件，这时 cancelBlock 就会被调用。 </p>
+<p>用 removeObserverWithHandle: 方法去停止接受数据更新的监听。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到初始数据和初始数据发生变化时，这个 block 将被回调。 block 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key</td>
+</tr>
+<tr>
+<td>cancelBlock</td>
+<td>如果客户端没有权限去接受这些事件，这个 block 将会被调用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong></p>
+<p>一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block</p>
+<p><br></p>
+<hr>
+<h3 id="–-observeSingleEventOfType-withBlock" class="article-heading"><a href="#–-observeSingleEventOfType-withBlock" class="headerlink" title="– observeSingleEventOfType:withBlock:"></a>– observeSingleEventOfType:withBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">-- (<span class="keyword">void</span>) observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 observeEventType:withBlock: 类似，不同之处在于  observeSingleEventOfType:withBlock: 中的回调函数只被执行一次。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到某事件时，回调 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock" class="article-heading"><a href="#–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock" class="headerlink" title="– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:"></a>– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot, <span class="built_in">NSString</span>* prevKey))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>这个方法和 observeEventType:withBlock: 方法类似。不同之处是：在初始数据返回后，这个 block 回调一次就被取消监听。<br>此外，对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-observeSingleEventOfType-withBlock-withCancelBlock" class="article-heading"><a href="#–-observeSingleEventOfType-withBlock-withCancelBlock" class="headerlink" title="– observeSingleEventOfType:withBlock:withCancelBlock:"></a>– observeSingleEventOfType:withBlock:withCancelBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot))block withCancelBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error))cancelBlock</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 observeSingleEventOfType:withBlock: 类似，如果你没有在这个节点读取数据的权限，cancelBlock 将会被回调。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>当监听到某事件时，回调 block</td>
+</tr>
+<tr>
+<td>cancelBlock</td>
+<td>如果您没有权限访问此数据，将调用该 cancelBlock</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock-withCancelBlock" class="article-heading"><a href="#–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock-withCancelBlock" class="headerlink" title="– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:"></a>– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(<span class="keyword">void</span> (^)(WDGDataSnapshot* snapshot, <span class="built_in">NSString</span>* prevKey))block withCancelBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error))cancelBlock</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>这个方法和 observeEventType:withBlock: 方法类似。不同之处是：在初始数据返回后，这个 block 回调一次就被取消监听。<br>此外，对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eventType</td>
+<td>监听的事件类型</td>
+</tr>
+<tr>
+<td>block</td>
+<td>将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key</td>
+</tr>
+<tr>
+<td>cancelBlock</td>
+<td>如果您没有权限访问此数据，将调用该 cancelBlock</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-removeObserverWithHandle" class="article-heading"><a href="#–-removeObserverWithHandle" class="headerlink" title="– removeObserverWithHandle:"></a>– removeObserverWithHandle:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) removeObserverWithHandle:(WDGSyncHandle)handle</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>取消监听事件。取消之前用 observeEventType:withBlock: 方法注册的监听事件。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle</td>
+<td>由 observeEventType:withBlock:返回的 WDGSyncHandle</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-removeAllObservers" class="article-heading"><a href="#–-removeAllObservers" class="headerlink" title="– removeAllObservers"></a>– removeAllObservers</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) removeAllObservers</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>取消之前由 observeEventType:withBlock:方法注册的所有监听事件。<br>在父节点上调用该方法时不会移除在其子节点上添加的监听。</p>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectSetValue" class="article-heading"><a href="#–-onDisconnectSetValue" class="headerlink" title="– onDisconnectSetValue:"></a>– onDisconnectSetValue:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectSetValue:(<span class="keyword">id</span>)value</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>离线操作的含义是客户端的推送的数据并非立刻生效，而是当客户端离线的时候才生效。  </p>
+<p>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值。<br>onDisconnectSetValue: 方法对实现在线系统是很有用的，这个在线系统可理解为：当用户失去连接时，一个数值被改变或者被清除，在别人的角度看，他的状态会显示“离线”。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>断开连接后要设置的值</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectSetValue-withCompletionBlock" class="article-heading"><a href="#–-onDisconnectSetValue-withCompletionBlock" class="headerlink" title="– onDisconnectSetValue:withCompletionBlock:"></a>– onDisconnectSetValue:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectSetValue:(<span class="keyword">id</span>)value withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值。<br>同 onDisconnectSetValue 方法类似：增加了一个 block，当写入操作完成之后，会回调这个 block。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>断开连接后要设置的值    </td>
+</tr>
+<tr>
+<td>block</td>
+<td>当设置值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectSetValue-andPriority" class="article-heading"><a href="#–-onDisconnectSetValue-andPriority" class="headerlink" title="– onDisconnectSetValue:andPriority:"></a>– onDisconnectSetValue:andPriority:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectSetValue:(<span class="keyword">id</span>)value andPriority:(<span class="keyword">id</span>)priority</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>离线操作的含义是客户端的推送的数据并非立刻生效，而是当客户端离线的时候才生效。  </p>
+<p>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值和优先级。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>断开连接后要设置的值  </td>
+</tr>
+<tr>
+<td>priority</td>
+<td>断开连接后要设置的优先级</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectSetValue-andPriority-withCompletionBlock" class="article-heading"><a href="#–-onDisconnectSetValue-andPriority-withCompletionBlock" class="headerlink" title="– onDisconnectSetValue:andPriority:withCompletionBlock:"></a>– onDisconnectSetValue:andPriority:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectSetValue:(<span class="keyword">id</span>)value andPriority:(<span class="keyword">id</span>)priority withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 onDisconnectSetValue:andPriority: 方法类似：增加了一个 block，当写入操作完成之后，会回调这个 block。<br>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值和优先级。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>连接断开后要设置的值  </td>
+</tr>
+<tr>
+<td>priority</td>
+<td>连接断开后要设置的优先级  </td>
+</tr>
+<tr>
+<td>block</td>
+<td>当设置值的操作成功排队到 Wilddog Sync 服务器上，这个 block 就会被触发</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectRemoveValue" class="article-heading"><a href="#–-onDisconnectRemoveValue" class="headerlink" title="– onDisconnectRemoveValue"></a>– onDisconnectRemoveValue</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectRemoveValue</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>离线操作的含义是客户端的推送的数据并非立刻生效，而是当客户端离线的时候才生效。    </p>
+<p>当客户端失去连接（因为关闭 app，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被删除。onDisconnectRemoveValue 对实施在线系统很有用</p>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectRemoveValueWithCompletionBlock" class="article-heading"><a href="#–-onDisconnectRemoveValueWithCompletionBlock" class="headerlink" title="– onDisconnectRemoveValueWithCompletionBlock:"></a>– onDisconnectRemoveValueWithCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectRemoveValueWithCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 onDisconnectRemoveValue 方法类似：增加了一个 block，当删除操作完成之后，会回调这个 block。</p>
+<p>当客户端失去连接（因为关闭 app，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被删除。onDisconnectRemoveValueWithCompletionBlock: 对实施在线系统很有用</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>当删除值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectUpdateChildValues" class="article-heading"><a href="#–-onDisconnectUpdateChildValues" class="headerlink" title="– onDisconnectUpdateChildValues:"></a>– onDisconnectUpdateChildValues:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">-- (<span class="keyword">void</span>) onDisconnectUpdateChildValues:(<span class="built_in">NSDictionary</span> *)values</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。    </p>
+<p>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保拥有子节点的数据被更新。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>values</td>
+<td>在连接断开之后，一个包含子节点键和值的字典</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-onDisconnectUpdateChildValues-withCompletionBlock" class="article-heading"><a href="#–-onDisconnectUpdateChildValues-withCompletionBlock" class="headerlink" title="– onDisconnectUpdateChildValues:withCompletionBlock:"></a>– onDisconnectUpdateChildValues:withCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) onDisconnectUpdateChildValues:(<span class="built_in">NSDictionary</span> *)values withCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>同 onDisconnectUpdateChildValues 方法类似：增加了一个 block，当更新操作完成之后，会回调这个 block。</p>
+<p>当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保拥有子节点的数据被更新。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>values</td>
+<td>在连接断开之后，一个包含子节点键和值的字典  </td>
+</tr>
+<tr>
+<td>block</td>
+<td>当更新值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-cancelDisconnectOperations" class="article-heading"><a href="#–-cancelDisconnectOperations" class="headerlink" title="– cancelDisconnectOperations"></a>– cancelDisconnectOperations</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) cancelDisconnectOperations</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>取消运行在离线状态设置的所有操作。<br>如果你之前调用了 onDisconnectSetValue:,onDisconnectRemoveValue: 或者 onDisconnectUpdateChildValues: 方法, 并且当连接断开时，不想再更新数值，这时候就调用 cancelDisconnectOperations:方法。</p>
+<p><br></p>
+<hr>
+<h3 id="–-cancelDisconnectOperationsWithCompletionBlock" class="article-heading"><a href="#–-cancelDisconnectOperationsWithCompletionBlock" class="headerlink" title="– cancelDisconnectOperationsWithCompletionBlock:"></a>– cancelDisconnectOperationsWithCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) cancelDisconnectOperationsWithCompletionBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span>* error, WDGSyncReference* ref))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>取消运行在离线状态设置的所有操作。<br>如果你之前调用了 onDisconnectSetValue:,onDisconnectRemoveValue: 或者 onDisconnectUpdateChildValues: 方法, 并且当连接断开时，不想再更新数值，这时候就调用 cancelDisconnectOperations:方法。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>当 Wilddog Sync 数据库服务器接受到 cancel 请求，触发的 block</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="goOffline" class="article-heading"><a href="#goOffline" class="headerlink" title="+ goOffline"></a>+ goOffline</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>) goOffline</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>手动断开连接，关闭自动重连。</p>
+<p><br></p>
+<hr>
+<h3 id="goOnline" class="article-heading"><a href="#goOnline" class="headerlink" title="+ goOnline"></a>+ goOnline</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>) goOnline</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>手动建立连接，开启自动重连。</p>
+<p><br></p>
+<hr>
+<h3 id="–-runTransactionBlock" class="article-heading"><a href="#–-runTransactionBlock" class="headerlink" title="– runTransactionBlock:"></a>– runTransactionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) runTransactionBlock:(WDGTransactionResult* (^) (WDGMutableData* currentData))block</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中把数据改成你要想要的，然后返回到 WDGTransactionResult 中。</p>
+<p>如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器最新数据再次执行。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>块(block)接收的当前数据(currentData)，然后返回一个 WDGTransactionResult 对象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<p>调用 [WDGTransactionResult abort] 可以取消这次操作。事例:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">[[ref child:<span class="string">@"followNumber"</span>] runTransactionBlock:^WDGTransactionResult *(WDGMutableData *currentData)  &#123;</div><div class="line"><span class="built_in">NSNumber</span> *value = currentData.value;</div><div class="line"><span class="keyword">if</span> (currentData.value == <span class="literal">nil</span>) &#123;</div><div class="line">    value = @<span class="number">1</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    [currentData setValue:[<span class="built_in">NSNumber</span> numberWithInt:(<span class="number">1</span> + [value intValue])]];</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> [WDGTransactionResult successWithValue:currentData];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p><br></p>
+<hr>
+<h3 id="–-runTransactionBlock-andCompletionBlock" class="article-heading"><a href="#–-runTransactionBlock-andCompletionBlock" class="headerlink" title="– runTransactionBlock:andCompletionBlock:"></a>– runTransactionBlock:andCompletionBlock:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) runTransactionBlock:(WDGTransactionResult* (^) (WDGMutableData* currentData))block andCompletionBlock:(<span class="keyword">void</span> (^) (<span class="built_in">NSError</span>* error, <span class="built_in">BOOL</span> committed, WDGDataSnapshot* snapshot))completionBlock</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中把数据改成你要想要的，然后返回到 WDGTransactionResult 中。</p>
+<p>如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器最新数据再次执行。</p>
+<p>调用 [WDGTransactionResult abort] 可以取消这次操作。 </p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>块(block)接收的当前数据(currentData)，然后返回一个WDGTransactionResult对象    </td>
+</tr>
+<tr>
+<td>completionBlock</td>
+<td>当事务完成时这个块将被触发，无论成功与否</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-runTransactionBlock-andCompletionBlock-withLocalEvents" class="article-heading"><a href="#–-runTransactionBlock-andCompletionBlock-withLocalEvents" class="headerlink" title="– runTransactionBlock:andCompletionBlock:withLocalEvents:"></a>– runTransactionBlock:andCompletionBlock:withLocalEvents:</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) runTransactionBlock:(WDGTransactionResult* (^) (WDGMutableData* currentData))block andCompletionBlock:(<span class="keyword">void</span> (^) (<span class="built_in">NSError</span>* error, <span class="built_in">BOOL</span> committed, WDGDataSnapshot* snapshot))completionBlock withLocalEvents:(<span class="built_in">BOOL</span>)localEvents</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中把数据改成你要想要的，然后返回到 WDGTransactionResult 中。 </p>
+<p>如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器最新数据再次执行。</p>
+<p>调用 [WDGTransactionResult abort] 可以取消这次操作。</p>
+<p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td>块(block)接收的当前数据(currentData)，然后返回一个 WDGTransactionResult 对象</td>
+</tr>
+<tr>
+<td>completionBlock</td>
+<td>当事务完成时这个块将被触发，无论成功与否  </td>
+</tr>
+<tr>
+<td>localEvents</td>
+<td>将其设置为 NO 来阻止触发中间状态的事件，只触发最终状态事件</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr>
+<h3 id="–-description" class="article-heading"><a href="#–-description" class="headerlink" title="– description"></a>– description</h3><p><strong>定义</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">NSString</span> *) description</div></pre></td></tr></table></figure>
+<p><strong>说明</strong></p>
+<p>获取当前 Wilddog Sync 数据库节点的绝对路径的 URL。</p>
+<p><strong>返回值</strong></p>
+<p>当前 Wilddog Sync 数据库节点的绝对路径的 URL</p>
+<p><br></p>
+
+                <time class="article-footer-updated" datetime="2017-03-03T08:18:34.838Z" itemprop="dateModified">上次更新：2017-03-03</time>
+              </div>
+              <div class="toc-content">
+                <aside id="article-toc" role="navigation">
+                  <div class="toc-scroll-content">
+                    <div class="toc-inner">
+                      <span class="slide-dot"></span>
+                      <div id="article-toc-inner">
+                        <strong class="sidebar-title">目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#app"><span class="toc-text">app</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parent"><span class="toc-text">parent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#root"><span class="toc-text">root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#key"><span class="toc-text">key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL"><span class="toc-text">URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sync"><span class="toc-text">sync</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#–-child"><span class="toc-text">– child:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-childByAppendingPath"><span class="toc-text">– childByAppendingPath:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-childByAutoId"><span class="toc-text">– childByAutoId</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setValue"><span class="toc-text">– setValue:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setValue-withCompletionBlock"><span class="toc-text">– setValue:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setValue-andPriority"><span class="toc-text">– setValue:andPriority:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setValue-andPriority-withCompletionBlock"><span class="toc-text">– setValue:andPriority:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-removeValue"><span class="toc-text">– removeValue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-removeValueWithCompletionBlock"><span class="toc-text">– removeValueWithCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setPriority"><span class="toc-text">– setPriority:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-setPriority-withCompletionBlock"><span class="toc-text">– setPriority:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-updateChildValues"><span class="toc-text">– updateChildValues:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-updateChildValues-withCompletionBlock"><span class="toc-text">– updateChildValues:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeEventType-withBlock"><span class="toc-text">– observeEventType:withBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeEventType-andPreviousSiblingKeyWithBlock"><span class="toc-text">– observeEventType:andPreviousSiblingKeyWithBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeEventType-withBlock-withCancelBlock"><span class="toc-text">– observeEventType:withBlock:withCancelBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeEventType-andPreviousSiblingKeyWithBlock-withCancelBlock"><span class="toc-text">– observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeSingleEventOfType-withBlock"><span class="toc-text">– observeSingleEventOfType:withBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock"><span class="toc-text">– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeSingleEventOfType-withBlock-withCancelBlock"><span class="toc-text">– observeSingleEventOfType:withBlock:withCancelBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-observeSingleEventOfType-andPreviousSiblingKeyWithBlock-withCancelBlock"><span class="toc-text">– observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-removeObserverWithHandle"><span class="toc-text">– removeObserverWithHandle:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-removeAllObservers"><span class="toc-text">– removeAllObservers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectSetValue"><span class="toc-text">– onDisconnectSetValue:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectSetValue-withCompletionBlock"><span class="toc-text">– onDisconnectSetValue:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectSetValue-andPriority"><span class="toc-text">– onDisconnectSetValue:andPriority:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectSetValue-andPriority-withCompletionBlock"><span class="toc-text">– onDisconnectSetValue:andPriority:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectRemoveValue"><span class="toc-text">– onDisconnectRemoveValue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectRemoveValueWithCompletionBlock"><span class="toc-text">– onDisconnectRemoveValueWithCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectUpdateChildValues"><span class="toc-text">– onDisconnectUpdateChildValues:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-onDisconnectUpdateChildValues-withCompletionBlock"><span class="toc-text">– onDisconnectUpdateChildValues:withCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-cancelDisconnectOperations"><span class="toc-text">– cancelDisconnectOperations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-cancelDisconnectOperationsWithCompletionBlock"><span class="toc-text">– cancelDisconnectOperationsWithCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goOffline"><span class="toc-text">+ goOffline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goOnline"><span class="toc-text">+ goOnline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-runTransactionBlock"><span class="toc-text">– runTransactionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-runTransactionBlock-andCompletionBlock"><span class="toc-text">– runTransactionBlock:andCompletionBlock:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-runTransactionBlock-andCompletionBlock-withLocalEvents"><span class="toc-text">– runTransactionBlock:andCompletionBlock:withLocalEvents:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–-description"><span class="toc-text">– description</span></a></li></ol></li></ol>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+                <div class="toc-link-title"></div>
+              </div>
+              <footer class="article-footer">
+                <a href="/api/sync/ios/WDGSync.html" class="article-footer-prev" title="WDGSync"><img src='/images/arr-left-1b2a378a2f.svg' class='arr-icon'><div class='page-title'><div>上一节：</div>WDGSync </div></a><a href="/api/sync/ios/WDGSyncQuery.html" class="article-footer-next" title="WDGSyncQuery"><div class='page-title'><div class='text-right'>下一节：</div>WDGSyncQuery</div><img src='/images/arr-right-e4720f74a4.svg' class='arr-icon'></a>
+              </footer>
+              <div class="novice novice-register text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">野狗新手？</div>
+                <div class="register-text">立即注册，为你提供安全可靠的实时通信云服务。</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/my-account/signup?next=https://docs.wilddog.com" class="btn btn-org-full register-link">免费注册</a>
+                </div>
+              </div>
+              <div class="novice novice-help text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">没找到需要的文档？</div>
+                <div class="register-text">你可以提交工单反馈 或 阅读常见问题</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/account/kf5" target="_blank" class="btn btn-org-empty service-link">客服工单</a><a href="https://wilddog.kf5.com/hc" target="_blank" class="btn btn-gray question-link">常见问题</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+  <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="sidebar-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/web/App.html" class="sidebar-link" title= App><span class="sidebar-link-text">App</span></a></li><li class='sublist-item'><a href="/api/sync/web/Sync.html" class="sidebar-link" title= Sync><span class="sidebar-link-text">Sync</span></a></li><li class='sublist-item'><a href="/api/sync/web/Reference.html" class="sidebar-link" title= Reference><span class="sidebar-link-text">Reference</span></a></li><li class='sublist-item'><a href="/api/sync/web/Query.html" class="sidebar-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/web/OnDisconnect.html" class="sidebar-link" title= OnDisconnect><span class="sidebar-link-text">OnDisconnect</span></a></li><li class='sublist-item'><a href="/api/sync/web/DataSnapshot.html" class="sidebar-link" title= DataSnapshot><span class="sidebar-link-text">DataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/web/Promise.html" class="sidebar-link" title= Promise><span class="sidebar-link-text">Promise</span></a></li><li class='sublist-item'><a href="/api/sync/web/Void.html" class="sidebar-link" title= Void><span class="sidebar-link-text">Void</span></a></li><li class='sublist-item'><a href="/api/sync/web/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/android/WilddogOptions.html" class="sidebar-link" title= WilddogOptions><span class="sidebar-link-text">WilddogOptions</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogOptions.Builder.html" class="sidebar-link" title= WilddogOptions.Builder><span class="sidebar-link-text">WilddogOptions.Builder</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogApp.html" class="sidebar-link" title= WilddogApp><span class="sidebar-link-text">WilddogApp</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogSync.html" class="sidebar-link" title= WilddogSync><span class="sidebar-link-text">WilddogSync</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncReference.html" class="sidebar-link" title= SyncReference><span class="sidebar-link-text">SyncReference</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncReference.CompletionListener.html" class="sidebar-link" title= SyncReference.CompletionListener><span class="sidebar-link-text">SyncReference.CompletionListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/ChildEventListener.html" class="sidebar-link" title= ChildEventListener><span class="sidebar-link-text">ChildEventListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/ValueEventListener.html" class="sidebar-link" title= ValueEventListener><span class="sidebar-link-text">ValueEventListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/Config.html" class="sidebar-link" title= Config><span class="sidebar-link-text">Config</span></a></li><li class='sublist-item'><a href="/api/sync/android/DataSnapshot.html" class="sidebar-link" title= DataSnapshot><span class="sidebar-link-text">DataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/android/MutableData.html" class="sidebar-link" title= MutableData><span class="sidebar-link-text">MutableData</span></a></li><li class='sublist-item'><a href="/api/sync/android/OnDisconnect.html" class="sidebar-link" title= OnDisconnect><span class="sidebar-link-text">OnDisconnect</span></a></li><li class='sublist-item'><a href="/api/sync/android/Query.html" class="sidebar-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/android/ServerValue.html" class="sidebar-link" title= ServerValue><span class="sidebar-link-text">ServerValue</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncError.html" class="sidebar-link" title= SyncError><span class="sidebar-link-text">SyncError</span></a></li><li class='sublist-item'><a href="/api/sync/android/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title select">iOS</strong><ul class='sublist current'><li class='sublist-item'><a href="/api/sync/ios/WDGOptions.html" class="sidebar-link" title= WDGOptions><span class="sidebar-link-text">WDGOptions</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGApp.html" class="sidebar-link" title= WDGApp><span class="sidebar-link-text">WDGApp</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSync.html" class="sidebar-link" title= WDGSync><span class="sidebar-link-text">WDGSync</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncReference.html" class="sidebar-link current" title= WDGSyncReference><span class="sidebar-link-text">WDGSyncReference</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncQuery.html" class="sidebar-link" title= WDGSyncQuery><span class="sidebar-link-text">WDGSyncQuery</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGDataSnapshot.html" class="sidebar-link" title= WDGDataSnapshot><span class="sidebar-link-text">WDGDataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGMutableData.html" class="sidebar-link" title= WDGMutableData><span class="sidebar-link-text">WDGMutableData</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGTransactionResult.html" class="sidebar-link" title= WDGTransactionResult><span class="sidebar-link-text">WDGTransactionResult</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGServerValue.html" class="sidebar-link" title= WDGServerValue><span class="sidebar-link-text">WDGServerValue</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncConfig.html" class="sidebar-link" title= WDGSyncConfig><span class="sidebar-link-text">WDGSyncConfig</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGDataEventType.html" class="sidebar-link" title= WDGDataEventType><span class="sidebar-link-text">WDGDataEventType</span></a></li><li class='sublist-item'><a href="/api/sync/ios/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">C/嵌入式</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/c/reference.html" class="sidebar-link" title= 操作实例><span class="sidebar-link-text">操作实例</span></a></li><li class='sublist-item'><a href="/api/sync/c/sync-with-server.html" class="sidebar-link" title= 数据修改和同步><span class="sidebar-link-text">数据修改和同步</span></a></li><li class='sublist-item'><a href="/api/sync/c/disconnect-sync.html" class="sidebar-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li><li class='sublist-item'><a href="/api/sync/c/local-node.html" class="sidebar-link" title= 节点操作><span class="sidebar-link-text">节点操作</span></a></li><li class='sublist-item'><a href="/api/sync/c/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/sync/arduino.html" class="sidebar-link" title= Arduino><span class="sidebar-link-text">Arduino</span></a><li class='sublist-item'><strong class="sidebar-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/rest/introduce.html" class="sidebar-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Query.html" class="sidebar-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Auth.html" class="sidebar-link" title= Auth><span class="sidebar-link-text">Auth</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Streaming.html" class="sidebar-link" title= Streaming><span class="sidebar-link-text">Streaming</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Priorities.html" class="sidebar-link" title= Priorities><span class="sidebar-link-text">Priorities</span></a></li><li class='sublist-item'><a href="/api/sync/rest/ServerValues.html" class="sidebar-link" title= ServerValues><span class="sidebar-link-text">ServerValues</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Rule.html" class="sidebar-link" title= Rule><span class="sidebar-link-text">Rule</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Error.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/sync/rule.html" class="sidebar-link" title= 规则表达式><span class="sidebar-link-text">规则表达式</span></a><li class='sublist-item'><a href="/api/sync/changelog.html" class="sidebar-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/web/wilddogVideo.html" class="sidebar-link" title= Video><span class="sidebar-link-text">Video</span></a></li><li class='sublist-item'><a href="/api/video/web/wilddogVideoClient.html" class="sidebar-link" title= Client><span class="sidebar-link-text">Client</span></a></li><li class='sublist-item'><a href="/api/video/web/conference.html" class="sidebar-link" title= Conference><span class="sidebar-link-text">Conference</span></a></li><li class='sublist-item'><a href="/api/video/web/conversation.html" class="sidebar-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/video/web/localParticipant.html" class="sidebar-link" title= LocalParticipant><span class="sidebar-link-text">LocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/web/participant.html" class="sidebar-link" title= Participant><span class="sidebar-link-text">Participant</span></a></li><li class='sublist-item'><a href="/api/video/web/localStream.html" class="sidebar-link" title= LocalStream><span class="sidebar-link-text">LocalStream</span></a></li><li class='sublist-item'><a href="/api/video/web/remoteStream.html" class="sidebar-link" title= RemoteStream><span class="sidebar-link-text">RemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/web/meetingCast.html" class="sidebar-link" title= MeetingCast><span class="sidebar-link-text">MeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/web/outgoingInvite.html" class="sidebar-link" title= OutgoingInvite><span class="sidebar-link-text">OutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/web/incomingInvite.html" class="sidebar-link" title= IncomingInvite><span class="sidebar-link-text">IncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/web/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/android/wilddog-video.html" class="sidebar-link" title= WilddogVideo><span class="sidebar-link-text">WilddogVideo</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-client.html" class="sidebar-link" title= WilddogVideoClient><span class="sidebar-link-text">WilddogVideoClient</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-client-listener.html" class="sidebar-link" title= WilddogVideoClient.Listener><span class="sidebar-link-text">WilddogVideoClient.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation.html" class="sidebar-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation-listener.html" class="sidebar-link" title= Conversation.Listener><span class="sidebar-link-text">Conversation.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation-callback.html" class="sidebar-link" title= ConversationCallback><span class="sidebar-link-text">ConversationCallback</span></a></li><li class='sublist-item'><a href="/api/video/android/conference.html" class="sidebar-link" title= Conference><span class="sidebar-link-text">Conference</span></a></li><li class='sublist-item'><a href="/api/video/android/conference-listener.html" class="sidebar-link" title= Conference.Listener><span class="sidebar-link-text">Conference.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/connect-options.html" class="sidebar-link" title= ConnectOptions><span class="sidebar-link-text">ConnectOptions</span></a></li><li class='sublist-item'><a href="/api/video/android/connect-status.html" class="sidebar-link" title= ConnectStatus><span class="sidebar-link-text">ConnectStatus</span></a></li><li class='sublist-item'><a href="/api/video/android/incoming-invite.html" class="sidebar-link" title= IncomingInvite><span class="sidebar-link-text">IncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/android/outgoing-invite.html" class="sidebar-link" title= OutgoingInvite><span class="sidebar-link-text">OutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/android/stream.html" class="sidebar-link" title= Stream><span class="sidebar-link-text">Stream</span></a></li><li class='sublist-item'><a href="/api/video/android/local-stream.html" class="sidebar-link" title= LocalStream><span class="sidebar-link-text">LocalStream</span></a></li><li class='sublist-item'><a href="/api/video/android/remote-stream.html" class="sidebar-link" title= RemoteStream><span class="sidebar-link-text">RemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/android/participant.html" class="sidebar-link" title= Participant><span class="sidebar-link-text">Participant</span></a></li><li class='sublist-item'><a href="/api/video/android/participant-listener.html" class="sidebar-link" title= Participant.Listener><span class="sidebar-link-text">Participant.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/local-participant.html" class="sidebar-link" title= LocalParticipant><span class="sidebar-link-text">LocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/android/video-exception.html" class="sidebar-link" title= VideoException><span class="sidebar-link-text">VideoException</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast.html" class="sidebar-link" title= MeetingCast><span class="sidebar-link-text">MeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/android/complete-listener.html" class="sidebar-link" title= CompleteListener><span class="sidebar-link-text">CompleteListener</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast-listener.html" class="sidebar-link" title= MeetingCastStateListener><span class="sidebar-link-text">MeetingCastStateListener</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast-status.html" class="sidebar-link" title= MeetingCastStatus><span class="sidebar-link-text">MeetingCastStatus</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-view.html" class="sidebar-link" title= WilddogVideoView><span class="sidebar-link-text">WilddogVideoView</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-view-layout.html" class="sidebar-link" title= WilddogVideoViewLayout><span class="sidebar-link-text">WilddogVideoViewLayout</span></a></li><li class='sublist-item'><a href="/api/video/android/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoClient.html" class="sidebar-link" title= WDGVideoClient><span class="sidebar-link-text">WDGVideoClient</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoClientDelegate.html" class="sidebar-link" title= &ltWDGVideoClientDelegate&gt><span class="sidebar-link-text">&ltWDGVideoClientDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConversation.html" class="sidebar-link" title= WDGVideoConversation><span class="sidebar-link-text">WDGVideoConversation</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoConversationDelegate.html" class="sidebar-link" title= &ltWDGVideoConversationDelegate&gt><span class="sidebar-link-text">&ltWDGVideoConversationDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConference.html" class="sidebar-link" title= WDGVideoConference><span class="sidebar-link-text">WDGVideoConference</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoConferenceDelegate.html" class="sidebar-link" title= &ltWDGVideoConferenceDelegate&gt><span class="sidebar-link-text">&ltWDGVideoConferenceDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalParticipant.html" class="sidebar-link" title= WDGVideoLocalParticipant><span class="sidebar-link-text">WDGVideoLocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoParticipant.html" class="sidebar-link" title= WDGVideoParticipant><span class="sidebar-link-text">WDGVideoParticipant</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoParticipantDelegate.html" class="sidebar-link" title= &ltWDGVideoParticipantDelegate&gt><span class="sidebar-link-text">&ltWDGVideoParticipantDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoIncomingInvite.html" class="sidebar-link" title= WDGVideoIncomingInvite><span class="sidebar-link-text">WDGVideoIncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoOutgoingInvite.html" class="sidebar-link" title= WDGVideoOutgoingInvite><span class="sidebar-link-text">WDGVideoOutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoStream.html" class="sidebar-link" title= WDGVideoStream><span class="sidebar-link-text">WDGVideoStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalStream.html" class="sidebar-link" title= WDGVideoLocalStream><span class="sidebar-link-text">WDGVideoLocalStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoRemoteStream.html" class="sidebar-link" title= WDGVideoRemoteStream><span class="sidebar-link-text">WDGVideoRemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoView.html" class="sidebar-link" title= WDGVideoView><span class="sidebar-link-text">WDGVideoView</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoMeetingCast.html" class="sidebar-link" title= WDGVideoMeetingCast><span class="sidebar-link-text">WDGVideoMeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoMeetingCastDelegate.html" class="sidebar-link" title= &ltWDGVideoMeetingCastDelegate&gt><span class="sidebar-link-text">&ltWDGVideoMeetingCastDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoClientOptions.html" class="sidebar-link" title= WDGVideoClientOptions><span class="sidebar-link-text">WDGVideoClientOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConnectOptions.html" class="sidebar-link" title= WDGVideoConnectOptions><span class="sidebar-link-text">WDGVideoConnectOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalStreamOptions.html" class="sidebar-link" title= WDGVideoLocalStreamOptions><span class="sidebar-link-text">WDGVideoLocalStreamOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/video/changelog.html" class="sidebar-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/im/ios/WDGIM.html" class="sidebar-link" title= WDGIM><span class="sidebar-link-text">WDGIM</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMConversation.html" class="sidebar-link" title= WDGIMConversation><span class="sidebar-link-text">WDGIMConversation</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessage.html" class="sidebar-link" title= WDGIMMessage><span class="sidebar-link-text">WDGIMMessage</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageGroupTip.html" class="sidebar-link" title= WDGIMMessageGroupTip><span class="sidebar-link-text">WDGIMMessageGroupTip</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageImage.html" class="sidebar-link" title= WDGIMMessageImage><span class="sidebar-link-text">WDGIMMessageImage</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageText.html" class="sidebar-link" title= WDGIMMessageText><span class="sidebar-link-text">WDGIMMessageText</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageVoice.html" class="sidebar-link" title= WDGIMMessageVoice><span class="sidebar-link-text">WDGIMMessageVoice</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMNotify.html" class="sidebar-link" title= WDGIMNotify><span class="sidebar-link-text">WDGIMNotify</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMUser.html" class="sidebar-link" title= WDGIMUser><span class="sidebar-link-text">WDGIMUser</span></a></li><li class='sublist-item'><a href="/api/im/ios/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/im/android/WilddogIM.html" class="sidebar-link" title= WilddogIM><span class="sidebar-link-text">WilddogIM</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.CompletionListener.html" class="sidebar-link" title= WilddogIM.CompletionListener><span class="sidebar-link-text">WilddogIM.CompletionListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMConnectionListener.html" class="sidebar-link" title= WilddogIM.WilddogIMConnectionListener><span class="sidebar-link-text">WilddogIM.WilddogIMConnectionListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMGroupChangeListener.html" class="sidebar-link" title= WilddogIM.WilddogIMGroupChangeListener><span class="sidebar-link-text">WilddogIM.WilddogIMGroupChangeListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMMessageListener.html" class="sidebar-link" title= WilddogIM.WilddogIMMessageListener><span class="sidebar-link-text">WilddogIM.WilddogIMMessageListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIMNotification.html" class="sidebar-link" title= WilddogIMNotification><span class="sidebar-link-text">WilddogIMNotification</span></a></li><li class='sublist-item'><a href="/api/im/android/Conversation.html" class="sidebar-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/im/android/Message.html" class="sidebar-link" title= Message><span class="sidebar-link-text">Message</span></a></li><li class='sublist-item'><a href="/api/im/android/GroupTipMessage.html" class="sidebar-link" title= GroupTipMessage><span class="sidebar-link-text">GroupTipMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/ImageMessage.html" class="sidebar-link" title= ImageMessage><span class="sidebar-link-text">ImageMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/TextMessage.html" class="sidebar-link" title= TextMessage><span class="sidebar-link-text">TextMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/VoiceMessage.html" class="sidebar-link" title= VoiceMessage><span class="sidebar-link-text">VoiceMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/im/changelog.html" class="sidebar-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sms/sendcode.html" class="sidebar-link" title= 发送验证码短信><span class="sidebar-link-text">发送验证码短信</span></a><li class='sublist-item'><a href="/api/sms/send.html" class="sidebar-link" title= 发送通知类短信><span class="sidebar-link-text">发送通知类短信</span></a><li class='sublist-item'><a href="/api/sms/checkcode.html" class="sidebar-link" title= 校验验证码><span class="sidebar-link-text">校验验证码</span></a><li class='sublist-item'><a href="/api/sms/status.html" class="sidebar-link" title= 查询发送状态><span class="sidebar-link-text">查询发送状态</span></a><li class='sublist-item'><a href="/api/sms/belance.html" class="sidebar-link" title= 查询账户余额><span class="sidebar-link-text">查询账户余额</span></a><li class='sublist-item'><a href="/api/sms/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a><li class='sublist-item'><a href="/api/sms/changelog.html" class="sidebar-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/web/App.html" class="sidebar-link" title= App><span class="sidebar-link-text">App</span></a></li><li class='sublist-item'><a href="/api/auth/web/Auth.html" class="sidebar-link" title= Auth><span class="sidebar-link-text">Auth</span></a></li><li class='sublist-item'><a href="/api/auth/web/User.html" class="sidebar-link" title= User><span class="sidebar-link-text">User</span></a></li><li class='sublist-item'><a href="/api/auth/web/UserInfo.html" class="sidebar-link" title= UserInfo><span class="sidebar-link-text">UserInfo</span></a></li><li class='sublist-item'><a href="/api/auth/web/Provider.html" class="sidebar-link" title= Provider><span class="sidebar-link-text">Provider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WilddogAuthProvider.html" class="sidebar-link" title= WilddogAuthProvider><span class="sidebar-link-text">WilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeiboAuthProvider.html" class="sidebar-link" title= WeiboAuthProvider><span class="sidebar-link-text">WeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/QQAuthProvider.html" class="sidebar-link" title= QQAuthProvider><span class="sidebar-link-text">QQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeixinAuthProvider.html" class="sidebar-link" title= WeixinAuthProvider><span class="sidebar-link-text">WeixinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeixinmpAuthProvider.html" class="sidebar-link" title= WeixinmpAuthProvider><span class="sidebar-link-text">WeixinmpAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/Credential.html" class="sidebar-link" title= Credential><span class="sidebar-link-text">Credential</span></a></li><li class='sublist-item'><a href="/api/auth/web/Promise.html" class="sidebar-link" title= Promise><span class="sidebar-link-text">Promise</span></a></li><li class='sublist-item'><a href="/api/auth/web/Void.html" class="sidebar-link" title= Void><span class="sidebar-link-text">Void</span></a></li><li class='sublist-item'><a href="/api/auth/web/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/android/WilddogAuth.html" class="sidebar-link" title= WilddogAuth><span class="sidebar-link-text">WilddogAuth</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogAuth.AuthStateListener.html" class="sidebar-link" title= WilddogAuth.AuthStateListener><span class="sidebar-link-text">WilddogAuth.AuthStateListener</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserInfo.html" class="sidebar-link" title= UserInfo><span class="sidebar-link-text">UserInfo</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogUser.html" class="sidebar-link" title= WilddogUser><span class="sidebar-link-text">WilddogUser</span></a></li><li class='sublist-item'><a href="/api/auth/android/AuthCredential.html" class="sidebar-link" title= AuthCredential><span class="sidebar-link-text">AuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/AuthResult.html" class="sidebar-link" title= AuthResult><span class="sidebar-link-text">AuthResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/EmailAuthCredential.html" class="sidebar-link" title= EmailAuthCredential><span class="sidebar-link-text">EmailAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/PhoneAuthCredential.html" class="sidebar-link" title= PhoneAuthCredential><span class="sidebar-link-text">PhoneAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/QQAuthCredential.html" class="sidebar-link" title= QQAuthCredential><span class="sidebar-link-text">QQAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/QQAuthProvider.html" class="sidebar-link" title= QQAuthProvider><span class="sidebar-link-text">QQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiboAuthCredential.html" class="sidebar-link" title= WeiboAuthCredential><span class="sidebar-link-text">WeiboAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiboAuthProvider.html" class="sidebar-link" title= WeiboAuthProvider><span class="sidebar-link-text">WeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiXinAuthCredential.html" class="sidebar-link" title= WeiXinAuthCredential><span class="sidebar-link-text">WeiXinAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiXinAuthProvider.html" class="sidebar-link" title= WeiXinAuthProvider><span class="sidebar-link-text">WeiXinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogAuthProvider.html" class="sidebar-link" title= WilddogAuthProvider><span class="sidebar-link-text">WilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/GetTokenResult.html" class="sidebar-link" title= GetTokenResult><span class="sidebar-link-text">GetTokenResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/ProviderQueryResult.html" class="sidebar-link" title= ProviderQueryResult><span class="sidebar-link-text">ProviderQueryResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserProfileChangeRequest.Builder.html" class="sidebar-link" title= UserProfileChangeRequest.Builder><span class="sidebar-link-text">UserProfileChangeRequest.Builder</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserProfileChangeRequest.html" class="sidebar-link" title= UserProfileChangeRequest><span class="sidebar-link-text">UserProfileChangeRequest</span></a></li><li class='sublist-item'><a href="/api/auth/android/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/ios/WDGAuth.html" class="sidebar-link" title= WDGAuth><span class="sidebar-link-text">WDGAuth</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGAuthCredential.html" class="sidebar-link" title= WDGAuthCredential><span class="sidebar-link-text">WDGAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWilddogAuthProvider.html" class="sidebar-link" title= WDGWilddogAuthProvider><span class="sidebar-link-text">WDGWilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGQQAuthProvider.html" class="sidebar-link" title= WDGQQAuthProvider><span class="sidebar-link-text">WDGQQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWeiXinAuthProvider.html" class="sidebar-link" title= WDGWeiXinAuthProvider><span class="sidebar-link-text">WDGWeiXinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWeiboAuthProvider.html" class="sidebar-link" title= WDGWeiboAuthProvider><span class="sidebar-link-text">WDGWeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUser.html" class="sidebar-link" title= WDGUser><span class="sidebar-link-text">WDGUser</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUserInfo.html" class="sidebar-link" title= &ltWDGUserInfo&gt><span class="sidebar-link-text">&ltWDGUserInfo&gt</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUserProfileChangeRequest.html" class="sidebar-link" title= WDGUserProfileChangeRequest><span class="sidebar-link-text">WDGUserProfileChangeRequest</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGAuthErrors.html" class="sidebar-link" title= WDGAuthErrors><span class="sidebar-link-text">WDGAuthErrors</span></a></li><li class='sublist-item'><a href="/api/auth/ios/error-code.html" class="sidebar-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/auth/changelog.html" class="sidebar-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li></ul>
+  <div class="old-doc"><a href="https://z.wilddog.com/overview/introduction?_ga=1.201538585.947321584.1476265715" class="old-doc-link">回到旧版文档<span class="back-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9.715" height="9.078" viewBox="0 0 9.715 9.078"><defs><path id="a" d="M0 0h9.715v9.078H0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.365.35v5.624H.741"/><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.104 8.728L.35 5.974l2.754-2.755"/></svg></span></a></div>
+  </div>
+</aside>
+    </div>
+    <div class="back-top-content">
+      <div class="back-top"></div>
+    </div>
+  </div>
+</div>
+<div class="feed-back">
+  <img src="/images/feed-bg-3b9131ccb1.svg" class="feed-bg" alt="">
+  <div class="feed-content">
+    <div class="feed-text-content clearfix">
+      <img src="/images/feed-icon-af0ea8c62e.svg" alt="">
+      <span class="feed-text">期待收到你的反馈，帮助我们改进文档。</span>
+    </div>
+    <a href="https://www.wenjuan.com/s/jQN7Bj/" target='_blank' class="feed-link">参与调研</a>
+  </div>
+  <span class="close-feed"><img src="/images/close-5aac04accb.svg" alt=""></span>
+</div>
+<!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/public-83c5dacb8d.js"></script>
+<script src="/js/localstorage-c4e8573405.js"></script>
+<script src="/js/toc-9ea2afca1c.js"></script>
+<script src="/js/mobile_nav-0e25d5740c.js"></script>
+<script src="/js/ui-4870e10579.js"></script>
+<script src="/js/search-b5357de5c7.js"></script>
+<!-- endbuild -->
+
+<!-- Google Tag Manager -->
+<script>
+window.addEventListener('load', function() {
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.wilddog.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-53PGC2');
+})
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Algolia -->
+<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
+
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+  <!--   <div id="footer-copyright">
+    &copy; 2017 <a href="https://www.wilddog.com/" target="_blank">野狗</a><br>
+  </div> -->
+    <div id="footer-links">
+		<a href="/overview/index.html" class="footer-link">文档</a>
+		<a href="https://www.wilddog.com/download" class="footer-link">SDK下载</a>
+		<a href="https://www.wilddog.com/product/pricing" class="footer-link">价格</a>
+		<a href="https://life.wilddog.com/wilddog-contact.html" class="footer-link">联系我们</a>
+		<a href="https://wilddog.kf5.com/user/login/?_ga=1.257821899.1360428381.1464868258" class="footer-link">客服工单</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="mobile-nav-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/web/App.html" class="mobile-nav-link" title= App><span class="sidebar-link-text">App</span></a></li><li class='sublist-item'><a href="/api/sync/web/Sync.html" class="mobile-nav-link" title= Sync><span class="sidebar-link-text">Sync</span></a></li><li class='sublist-item'><a href="/api/sync/web/Reference.html" class="mobile-nav-link" title= Reference><span class="sidebar-link-text">Reference</span></a></li><li class='sublist-item'><a href="/api/sync/web/Query.html" class="mobile-nav-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/web/OnDisconnect.html" class="mobile-nav-link" title= OnDisconnect><span class="sidebar-link-text">OnDisconnect</span></a></li><li class='sublist-item'><a href="/api/sync/web/DataSnapshot.html" class="mobile-nav-link" title= DataSnapshot><span class="sidebar-link-text">DataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/web/Promise.html" class="mobile-nav-link" title= Promise><span class="sidebar-link-text">Promise</span></a></li><li class='sublist-item'><a href="/api/sync/web/Void.html" class="mobile-nav-link" title= Void><span class="sidebar-link-text">Void</span></a></li><li class='sublist-item'><a href="/api/sync/web/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/android/WilddogOptions.html" class="mobile-nav-link" title= WilddogOptions><span class="sidebar-link-text">WilddogOptions</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogOptions.Builder.html" class="mobile-nav-link" title= WilddogOptions.Builder><span class="sidebar-link-text">WilddogOptions.Builder</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogApp.html" class="mobile-nav-link" title= WilddogApp><span class="sidebar-link-text">WilddogApp</span></a></li><li class='sublist-item'><a href="/api/sync/android/WilddogSync.html" class="mobile-nav-link" title= WilddogSync><span class="sidebar-link-text">WilddogSync</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncReference.html" class="mobile-nav-link" title= SyncReference><span class="sidebar-link-text">SyncReference</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncReference.CompletionListener.html" class="mobile-nav-link" title= SyncReference.CompletionListener><span class="sidebar-link-text">SyncReference.CompletionListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/ChildEventListener.html" class="mobile-nav-link" title= ChildEventListener><span class="sidebar-link-text">ChildEventListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/ValueEventListener.html" class="mobile-nav-link" title= ValueEventListener><span class="sidebar-link-text">ValueEventListener</span></a></li><li class='sublist-item'><a href="/api/sync/android/Config.html" class="mobile-nav-link" title= Config><span class="sidebar-link-text">Config</span></a></li><li class='sublist-item'><a href="/api/sync/android/DataSnapshot.html" class="mobile-nav-link" title= DataSnapshot><span class="sidebar-link-text">DataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/android/MutableData.html" class="mobile-nav-link" title= MutableData><span class="sidebar-link-text">MutableData</span></a></li><li class='sublist-item'><a href="/api/sync/android/OnDisconnect.html" class="mobile-nav-link" title= OnDisconnect><span class="sidebar-link-text">OnDisconnect</span></a></li><li class='sublist-item'><a href="/api/sync/android/Query.html" class="mobile-nav-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/android/ServerValue.html" class="mobile-nav-link" title= ServerValue><span class="sidebar-link-text">ServerValue</span></a></li><li class='sublist-item'><a href="/api/sync/android/SyncError.html" class="mobile-nav-link" title= SyncError><span class="sidebar-link-text">SyncError</span></a></li><li class='sublist-item'><a href="/api/sync/android/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title select">iOS</strong><ul class='sublist current'><li class='sublist-item'><a href="/api/sync/ios/WDGOptions.html" class="mobile-nav-link" title= WDGOptions><span class="sidebar-link-text">WDGOptions</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGApp.html" class="mobile-nav-link" title= WDGApp><span class="sidebar-link-text">WDGApp</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSync.html" class="mobile-nav-link" title= WDGSync><span class="sidebar-link-text">WDGSync</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncReference.html" class="mobile-nav-link current" title= WDGSyncReference><span class="sidebar-link-text">WDGSyncReference</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncQuery.html" class="mobile-nav-link" title= WDGSyncQuery><span class="sidebar-link-text">WDGSyncQuery</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGDataSnapshot.html" class="mobile-nav-link" title= WDGDataSnapshot><span class="sidebar-link-text">WDGDataSnapshot</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGMutableData.html" class="mobile-nav-link" title= WDGMutableData><span class="sidebar-link-text">WDGMutableData</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGTransactionResult.html" class="mobile-nav-link" title= WDGTransactionResult><span class="sidebar-link-text">WDGTransactionResult</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGServerValue.html" class="mobile-nav-link" title= WDGServerValue><span class="sidebar-link-text">WDGServerValue</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGSyncConfig.html" class="mobile-nav-link" title= WDGSyncConfig><span class="sidebar-link-text">WDGSyncConfig</span></a></li><li class='sublist-item'><a href="/api/sync/ios/WDGDataEventType.html" class="mobile-nav-link" title= WDGDataEventType><span class="sidebar-link-text">WDGDataEventType</span></a></li><li class='sublist-item'><a href="/api/sync/ios/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">C/嵌入式</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/c/reference.html" class="mobile-nav-link" title= 操作实例><span class="sidebar-link-text">操作实例</span></a></li><li class='sublist-item'><a href="/api/sync/c/sync-with-server.html" class="mobile-nav-link" title= 数据修改和同步><span class="sidebar-link-text">数据修改和同步</span></a></li><li class='sublist-item'><a href="/api/sync/c/disconnect-sync.html" class="mobile-nav-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li><li class='sublist-item'><a href="/api/sync/c/local-node.html" class="mobile-nav-link" title= 节点操作><span class="sidebar-link-text">节点操作</span></a></li><li class='sublist-item'><a href="/api/sync/c/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/sync/arduino.html" class="mobile-nav-link" title= Arduino><span class="sidebar-link-text">Arduino</span></a><li class='sublist-item'><strong class="mobile-nav-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sync/rest/introduce.html" class="mobile-nav-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Query.html" class="mobile-nav-link" title= Query><span class="sidebar-link-text">Query</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Auth.html" class="mobile-nav-link" title= Auth><span class="sidebar-link-text">Auth</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Streaming.html" class="mobile-nav-link" title= Streaming><span class="sidebar-link-text">Streaming</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Priorities.html" class="mobile-nav-link" title= Priorities><span class="sidebar-link-text">Priorities</span></a></li><li class='sublist-item'><a href="/api/sync/rest/ServerValues.html" class="mobile-nav-link" title= ServerValues><span class="sidebar-link-text">ServerValues</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Rule.html" class="mobile-nav-link" title= Rule><span class="sidebar-link-text">Rule</span></a></li><li class='sublist-item'><a href="/api/sync/rest/Error.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/sync/rule.html" class="mobile-nav-link" title= 规则表达式><span class="sidebar-link-text">规则表达式</span></a><li class='sublist-item'><a href="/api/sync/changelog.html" class="mobile-nav-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/web/wilddogVideo.html" class="mobile-nav-link" title= Video><span class="sidebar-link-text">Video</span></a></li><li class='sublist-item'><a href="/api/video/web/wilddogVideoClient.html" class="mobile-nav-link" title= Client><span class="sidebar-link-text">Client</span></a></li><li class='sublist-item'><a href="/api/video/web/conference.html" class="mobile-nav-link" title= Conference><span class="sidebar-link-text">Conference</span></a></li><li class='sublist-item'><a href="/api/video/web/conversation.html" class="mobile-nav-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/video/web/localParticipant.html" class="mobile-nav-link" title= LocalParticipant><span class="sidebar-link-text">LocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/web/participant.html" class="mobile-nav-link" title= Participant><span class="sidebar-link-text">Participant</span></a></li><li class='sublist-item'><a href="/api/video/web/localStream.html" class="mobile-nav-link" title= LocalStream><span class="sidebar-link-text">LocalStream</span></a></li><li class='sublist-item'><a href="/api/video/web/remoteStream.html" class="mobile-nav-link" title= RemoteStream><span class="sidebar-link-text">RemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/web/meetingCast.html" class="mobile-nav-link" title= MeetingCast><span class="sidebar-link-text">MeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/web/outgoingInvite.html" class="mobile-nav-link" title= OutgoingInvite><span class="sidebar-link-text">OutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/web/incomingInvite.html" class="mobile-nav-link" title= IncomingInvite><span class="sidebar-link-text">IncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/web/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/android/wilddog-video.html" class="mobile-nav-link" title= WilddogVideo><span class="sidebar-link-text">WilddogVideo</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-client.html" class="mobile-nav-link" title= WilddogVideoClient><span class="sidebar-link-text">WilddogVideoClient</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-client-listener.html" class="mobile-nav-link" title= WilddogVideoClient.Listener><span class="sidebar-link-text">WilddogVideoClient.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation.html" class="mobile-nav-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation-listener.html" class="mobile-nav-link" title= Conversation.Listener><span class="sidebar-link-text">Conversation.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/conversation-callback.html" class="mobile-nav-link" title= ConversationCallback><span class="sidebar-link-text">ConversationCallback</span></a></li><li class='sublist-item'><a href="/api/video/android/conference.html" class="mobile-nav-link" title= Conference><span class="sidebar-link-text">Conference</span></a></li><li class='sublist-item'><a href="/api/video/android/conference-listener.html" class="mobile-nav-link" title= Conference.Listener><span class="sidebar-link-text">Conference.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/connect-options.html" class="mobile-nav-link" title= ConnectOptions><span class="sidebar-link-text">ConnectOptions</span></a></li><li class='sublist-item'><a href="/api/video/android/connect-status.html" class="mobile-nav-link" title= ConnectStatus><span class="sidebar-link-text">ConnectStatus</span></a></li><li class='sublist-item'><a href="/api/video/android/incoming-invite.html" class="mobile-nav-link" title= IncomingInvite><span class="sidebar-link-text">IncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/android/outgoing-invite.html" class="mobile-nav-link" title= OutgoingInvite><span class="sidebar-link-text">OutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/android/stream.html" class="mobile-nav-link" title= Stream><span class="sidebar-link-text">Stream</span></a></li><li class='sublist-item'><a href="/api/video/android/local-stream.html" class="mobile-nav-link" title= LocalStream><span class="sidebar-link-text">LocalStream</span></a></li><li class='sublist-item'><a href="/api/video/android/remote-stream.html" class="mobile-nav-link" title= RemoteStream><span class="sidebar-link-text">RemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/android/participant.html" class="mobile-nav-link" title= Participant><span class="sidebar-link-text">Participant</span></a></li><li class='sublist-item'><a href="/api/video/android/participant-listener.html" class="mobile-nav-link" title= Participant.Listener><span class="sidebar-link-text">Participant.Listener</span></a></li><li class='sublist-item'><a href="/api/video/android/local-participant.html" class="mobile-nav-link" title= LocalParticipant><span class="sidebar-link-text">LocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/android/video-exception.html" class="mobile-nav-link" title= VideoException><span class="sidebar-link-text">VideoException</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast.html" class="mobile-nav-link" title= MeetingCast><span class="sidebar-link-text">MeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/android/complete-listener.html" class="mobile-nav-link" title= CompleteListener><span class="sidebar-link-text">CompleteListener</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast-listener.html" class="mobile-nav-link" title= MeetingCastStateListener><span class="sidebar-link-text">MeetingCastStateListener</span></a></li><li class='sublist-item'><a href="/api/video/android/meeting-cast-status.html" class="mobile-nav-link" title= MeetingCastStatus><span class="sidebar-link-text">MeetingCastStatus</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-view.html" class="mobile-nav-link" title= WilddogVideoView><span class="sidebar-link-text">WilddogVideoView</span></a></li><li class='sublist-item'><a href="/api/video/android/wilddog-video-view-layout.html" class="mobile-nav-link" title= WilddogVideoViewLayout><span class="sidebar-link-text">WilddogVideoViewLayout</span></a></li><li class='sublist-item'><a href="/api/video/android/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoClient.html" class="mobile-nav-link" title= WDGVideoClient><span class="sidebar-link-text">WDGVideoClient</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoClientDelegate.html" class="mobile-nav-link" title= &ltWDGVideoClientDelegate&gt><span class="sidebar-link-text">&ltWDGVideoClientDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConversation.html" class="mobile-nav-link" title= WDGVideoConversation><span class="sidebar-link-text">WDGVideoConversation</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoConversationDelegate.html" class="mobile-nav-link" title= &ltWDGVideoConversationDelegate&gt><span class="sidebar-link-text">&ltWDGVideoConversationDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConference.html" class="mobile-nav-link" title= WDGVideoConference><span class="sidebar-link-text">WDGVideoConference</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoConferenceDelegate.html" class="mobile-nav-link" title= &ltWDGVideoConferenceDelegate&gt><span class="sidebar-link-text">&ltWDGVideoConferenceDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalParticipant.html" class="mobile-nav-link" title= WDGVideoLocalParticipant><span class="sidebar-link-text">WDGVideoLocalParticipant</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoParticipant.html" class="mobile-nav-link" title= WDGVideoParticipant><span class="sidebar-link-text">WDGVideoParticipant</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoParticipantDelegate.html" class="mobile-nav-link" title= &ltWDGVideoParticipantDelegate&gt><span class="sidebar-link-text">&ltWDGVideoParticipantDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoIncomingInvite.html" class="mobile-nav-link" title= WDGVideoIncomingInvite><span class="sidebar-link-text">WDGVideoIncomingInvite</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoOutgoingInvite.html" class="mobile-nav-link" title= WDGVideoOutgoingInvite><span class="sidebar-link-text">WDGVideoOutgoingInvite</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoStream.html" class="mobile-nav-link" title= WDGVideoStream><span class="sidebar-link-text">WDGVideoStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalStream.html" class="mobile-nav-link" title= WDGVideoLocalStream><span class="sidebar-link-text">WDGVideoLocalStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoRemoteStream.html" class="mobile-nav-link" title= WDGVideoRemoteStream><span class="sidebar-link-text">WDGVideoRemoteStream</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoView.html" class="mobile-nav-link" title= WDGVideoView><span class="sidebar-link-text">WDGVideoView</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoMeetingCast.html" class="mobile-nav-link" title= WDGVideoMeetingCast><span class="sidebar-link-text">WDGVideoMeetingCast</span></a></li><li class='sublist-item'><a href="/api/video/ios/Protocols/WDGVideoMeetingCastDelegate.html" class="mobile-nav-link" title= &ltWDGVideoMeetingCastDelegate&gt><span class="sidebar-link-text">&ltWDGVideoMeetingCastDelegate&gt</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoClientOptions.html" class="mobile-nav-link" title= WDGVideoClientOptions><span class="sidebar-link-text">WDGVideoClientOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoConnectOptions.html" class="mobile-nav-link" title= WDGVideoConnectOptions><span class="sidebar-link-text">WDGVideoConnectOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/Classes/WDGVideoLocalStreamOptions.html" class="mobile-nav-link" title= WDGVideoLocalStreamOptions><span class="sidebar-link-text">WDGVideoLocalStreamOptions</span></a></li><li class='sublist-item'><a href="/api/video/ios/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/video/changelog.html" class="mobile-nav-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/im/ios/WDGIM.html" class="mobile-nav-link" title= WDGIM><span class="sidebar-link-text">WDGIM</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMConversation.html" class="mobile-nav-link" title= WDGIMConversation><span class="sidebar-link-text">WDGIMConversation</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessage.html" class="mobile-nav-link" title= WDGIMMessage><span class="sidebar-link-text">WDGIMMessage</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageGroupTip.html" class="mobile-nav-link" title= WDGIMMessageGroupTip><span class="sidebar-link-text">WDGIMMessageGroupTip</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageImage.html" class="mobile-nav-link" title= WDGIMMessageImage><span class="sidebar-link-text">WDGIMMessageImage</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageText.html" class="mobile-nav-link" title= WDGIMMessageText><span class="sidebar-link-text">WDGIMMessageText</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMMessageVoice.html" class="mobile-nav-link" title= WDGIMMessageVoice><span class="sidebar-link-text">WDGIMMessageVoice</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMNotify.html" class="mobile-nav-link" title= WDGIMNotify><span class="sidebar-link-text">WDGIMNotify</span></a></li><li class='sublist-item'><a href="/api/im/ios/WDGIMUser.html" class="mobile-nav-link" title= WDGIMUser><span class="sidebar-link-text">WDGIMUser</span></a></li><li class='sublist-item'><a href="/api/im/ios/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/im/android/WilddogIM.html" class="mobile-nav-link" title= WilddogIM><span class="sidebar-link-text">WilddogIM</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.CompletionListener.html" class="mobile-nav-link" title= WilddogIM.CompletionListener><span class="sidebar-link-text">WilddogIM.CompletionListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMConnectionListener.html" class="mobile-nav-link" title= WilddogIM.WilddogIMConnectionListener><span class="sidebar-link-text">WilddogIM.WilddogIMConnectionListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMGroupChangeListener.html" class="mobile-nav-link" title= WilddogIM.WilddogIMGroupChangeListener><span class="sidebar-link-text">WilddogIM.WilddogIMGroupChangeListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIM.WilddogIMMessageListener.html" class="mobile-nav-link" title= WilddogIM.WilddogIMMessageListener><span class="sidebar-link-text">WilddogIM.WilddogIMMessageListener</span></a></li><li class='sublist-item'><a href="/api/im/android/WilddogIMNotification.html" class="mobile-nav-link" title= WilddogIMNotification><span class="sidebar-link-text">WilddogIMNotification</span></a></li><li class='sublist-item'><a href="/api/im/android/Conversation.html" class="mobile-nav-link" title= Conversation><span class="sidebar-link-text">Conversation</span></a></li><li class='sublist-item'><a href="/api/im/android/Message.html" class="mobile-nav-link" title= Message><span class="sidebar-link-text">Message</span></a></li><li class='sublist-item'><a href="/api/im/android/GroupTipMessage.html" class="mobile-nav-link" title= GroupTipMessage><span class="sidebar-link-text">GroupTipMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/ImageMessage.html" class="mobile-nav-link" title= ImageMessage><span class="sidebar-link-text">ImageMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/TextMessage.html" class="mobile-nav-link" title= TextMessage><span class="sidebar-link-text">TextMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/VoiceMessage.html" class="mobile-nav-link" title= VoiceMessage><span class="sidebar-link-text">VoiceMessage</span></a></li><li class='sublist-item'><a href="/api/im/android/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/im/changelog.html" class="mobile-nav-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/api/sms/sendcode.html" class="mobile-nav-link" title= 发送验证码短信><span class="sidebar-link-text">发送验证码短信</span></a><li class='sublist-item'><a href="/api/sms/send.html" class="mobile-nav-link" title= 发送通知类短信><span class="sidebar-link-text">发送通知类短信</span></a><li class='sublist-item'><a href="/api/sms/checkcode.html" class="mobile-nav-link" title= 校验验证码><span class="sidebar-link-text">校验验证码</span></a><li class='sublist-item'><a href="/api/sms/status.html" class="mobile-nav-link" title= 查询发送状态><span class="sidebar-link-text">查询发送状态</span></a><li class='sublist-item'><a href="/api/sms/belance.html" class="mobile-nav-link" title= 查询账户余额><span class="sidebar-link-text">查询账户余额</span></a><li class='sublist-item'><a href="/api/sms/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a><li class='sublist-item'><a href="/api/sms/changelog.html" class="mobile-nav-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/web/App.html" class="mobile-nav-link" title= App><span class="sidebar-link-text">App</span></a></li><li class='sublist-item'><a href="/api/auth/web/Auth.html" class="mobile-nav-link" title= Auth><span class="sidebar-link-text">Auth</span></a></li><li class='sublist-item'><a href="/api/auth/web/User.html" class="mobile-nav-link" title= User><span class="sidebar-link-text">User</span></a></li><li class='sublist-item'><a href="/api/auth/web/UserInfo.html" class="mobile-nav-link" title= UserInfo><span class="sidebar-link-text">UserInfo</span></a></li><li class='sublist-item'><a href="/api/auth/web/Provider.html" class="mobile-nav-link" title= Provider><span class="sidebar-link-text">Provider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WilddogAuthProvider.html" class="mobile-nav-link" title= WilddogAuthProvider><span class="sidebar-link-text">WilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeiboAuthProvider.html" class="mobile-nav-link" title= WeiboAuthProvider><span class="sidebar-link-text">WeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/QQAuthProvider.html" class="mobile-nav-link" title= QQAuthProvider><span class="sidebar-link-text">QQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeixinAuthProvider.html" class="mobile-nav-link" title= WeixinAuthProvider><span class="sidebar-link-text">WeixinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/WeixinmpAuthProvider.html" class="mobile-nav-link" title= WeixinmpAuthProvider><span class="sidebar-link-text">WeixinmpAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/web/Credential.html" class="mobile-nav-link" title= Credential><span class="sidebar-link-text">Credential</span></a></li><li class='sublist-item'><a href="/api/auth/web/Promise.html" class="mobile-nav-link" title= Promise><span class="sidebar-link-text">Promise</span></a></li><li class='sublist-item'><a href="/api/auth/web/Void.html" class="mobile-nav-link" title= Void><span class="sidebar-link-text">Void</span></a></li><li class='sublist-item'><a href="/api/auth/web/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/android/WilddogAuth.html" class="mobile-nav-link" title= WilddogAuth><span class="sidebar-link-text">WilddogAuth</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogAuth.AuthStateListener.html" class="mobile-nav-link" title= WilddogAuth.AuthStateListener><span class="sidebar-link-text">WilddogAuth.AuthStateListener</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserInfo.html" class="mobile-nav-link" title= UserInfo><span class="sidebar-link-text">UserInfo</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogUser.html" class="mobile-nav-link" title= WilddogUser><span class="sidebar-link-text">WilddogUser</span></a></li><li class='sublist-item'><a href="/api/auth/android/AuthCredential.html" class="mobile-nav-link" title= AuthCredential><span class="sidebar-link-text">AuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/AuthResult.html" class="mobile-nav-link" title= AuthResult><span class="sidebar-link-text">AuthResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/EmailAuthCredential.html" class="mobile-nav-link" title= EmailAuthCredential><span class="sidebar-link-text">EmailAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/PhoneAuthCredential.html" class="mobile-nav-link" title= PhoneAuthCredential><span class="sidebar-link-text">PhoneAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/QQAuthCredential.html" class="mobile-nav-link" title= QQAuthCredential><span class="sidebar-link-text">QQAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/QQAuthProvider.html" class="mobile-nav-link" title= QQAuthProvider><span class="sidebar-link-text">QQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiboAuthCredential.html" class="mobile-nav-link" title= WeiboAuthCredential><span class="sidebar-link-text">WeiboAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiboAuthProvider.html" class="mobile-nav-link" title= WeiboAuthProvider><span class="sidebar-link-text">WeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiXinAuthCredential.html" class="mobile-nav-link" title= WeiXinAuthCredential><span class="sidebar-link-text">WeiXinAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/android/WeiXinAuthProvider.html" class="mobile-nav-link" title= WeiXinAuthProvider><span class="sidebar-link-text">WeiXinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/WilddogAuthProvider.html" class="mobile-nav-link" title= WilddogAuthProvider><span class="sidebar-link-text">WilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/android/GetTokenResult.html" class="mobile-nav-link" title= GetTokenResult><span class="sidebar-link-text">GetTokenResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/ProviderQueryResult.html" class="mobile-nav-link" title= ProviderQueryResult><span class="sidebar-link-text">ProviderQueryResult</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserProfileChangeRequest.Builder.html" class="mobile-nav-link" title= UserProfileChangeRequest.Builder><span class="sidebar-link-text">UserProfileChangeRequest.Builder</span></a></li><li class='sublist-item'><a href="/api/auth/android/UserProfileChangeRequest.html" class="mobile-nav-link" title= UserProfileChangeRequest><span class="sidebar-link-text">UserProfileChangeRequest</span></a></li><li class='sublist-item'><a href="/api/auth/android/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/api/auth/ios/WDGAuth.html" class="mobile-nav-link" title= WDGAuth><span class="sidebar-link-text">WDGAuth</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGAuthCredential.html" class="mobile-nav-link" title= WDGAuthCredential><span class="sidebar-link-text">WDGAuthCredential</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWilddogAuthProvider.html" class="mobile-nav-link" title= WDGWilddogAuthProvider><span class="sidebar-link-text">WDGWilddogAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGQQAuthProvider.html" class="mobile-nav-link" title= WDGQQAuthProvider><span class="sidebar-link-text">WDGQQAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWeiXinAuthProvider.html" class="mobile-nav-link" title= WDGWeiXinAuthProvider><span class="sidebar-link-text">WDGWeiXinAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGWeiboAuthProvider.html" class="mobile-nav-link" title= WDGWeiboAuthProvider><span class="sidebar-link-text">WDGWeiboAuthProvider</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUser.html" class="mobile-nav-link" title= WDGUser><span class="sidebar-link-text">WDGUser</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUserInfo.html" class="mobile-nav-link" title= &ltWDGUserInfo&gt><span class="sidebar-link-text">&ltWDGUserInfo&gt</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGUserProfileChangeRequest.html" class="mobile-nav-link" title= WDGUserProfileChangeRequest><span class="sidebar-link-text">WDGUserProfileChangeRequest</span></a></li><li class='sublist-item'><a href="/api/auth/ios/WDGAuthErrors.html" class="mobile-nav-link" title= WDGAuthErrors><span class="sidebar-link-text">WDGAuthErrors</span></a></li><li class='sublist-item'><a href="/api/auth/ios/error-code.html" class="mobile-nav-link" title= 错误码><span class="sidebar-link-text">错误码</span></a></li></ul></li></li><li class='sublist-item'><a href="/api/auth/changelog.html" class="mobile-nav-link" title= 更新日志><span class="sidebar-link-text">更新日志</span></a></ul></li></ul>
+    
+  </div>
+
+</nav>
+</body>
+</html>

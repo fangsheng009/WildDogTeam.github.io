@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>事件监听 | 开发文档</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/guide/sync/android/retrieve-data.html">
+  <!-- Alternative links -->
+  
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/images/favicon-21c2ba7576.png" sizes="24x24">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy-4e4f236b1d.css -->
+  <link rel="stylesheet" href="/css/navy-4e4f236b1d.css">
+  <!-- endbuild -->
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="开发文档">
+  <!-- Open Graph -->
+  <meta name="description" content="事件监听是指通过事件触发的方式来获取云端变化的数据。通过监听云端事件，本地获取并处理数据，保持和数据实时同步。
+事件数据在云端发生变化后会触发事件。
+事件包含以下五种：
+
+
+
+事件类型
+说明
+
+
+
+
+onChildAdded()
+初始化监听或有新增子节点。
+
+
+onChildChanged()
+子节点数据发生更改。
+
+
+onChildRemoved()
+子节点被删除。
+
+
+onChildMoved">
+<meta property="og:type" content="website">
+<meta property="og:title" content="事件监听">
+<meta property="og:url" content="http://yoursite.com/guide/sync/android/retrieve-data.html">
+<meta property="og:site_name" content="开发文档">
+<meta property="og:description" content="事件监听是指通过事件触发的方式来获取云端变化的数据。通过监听云端事件，本地获取并处理数据，保持和数据实时同步。
+事件数据在云端发生变化后会触发事件。
+事件包含以下五种：
+
+
+
+事件类型
+说明
+
+
+
+
+onChildAdded()
+初始化监听或有新增子节点。
+
+
+onChildChanged()
+子节点数据发生更改。
+
+
+onChildRemoved()
+子节点被删除。
+
+
+onChildMoved">
+<meta property="og:updated_time" content="2017-03-03T08:18:34.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事件监听">
+<meta name="twitter:description" content="事件监听是指通过事件触发的方式来获取云端变化的数据。通过监听云端事件，本地获取并处理数据，保持和数据实时同步。
+事件数据在云端发生变化后会触发事件。
+事件包含以下五种：
+
+
+
+事件类型
+说明
+
+
+
+
+onChildAdded()
+初始化监听或有新增子节点。
+
+
+onChildChanged()
+子节点数据发生更改。
+
+
+onChildRemoved()
+子节点被删除。
+
+
+onChildMoved">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="https://www.wilddog.com" id="logo"></a>
+    </h1>
+    <nav id="main-nav">
+      <a href="javascript:;" class="main-nav-link">概览</a>
+      <a href="javascript:;" class="main-nav-link">快速入门</a>
+      <a href="javascript:;" class="main-nav-link">完整指南</a>
+      <a href="javascript:;" class="main-nav-link">API 文档</a>
+      <a href="javascript:;" class="main-nav-link">示例代码</a>
+      <a href="javascript:;" class="main-nav-link">控制面板指南</a>
+    </nav>
+    <div class="searchbar">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+        <span class="serach-placeholder">搜索</span>
+      </div>
+    </div>
+    <div class="searchbar-inputting">
+      <div class="search-tips">
+        <img src="/images/search-icon-19ce67e2af.svg" alt="" width="15" height="15" class="search-icon">
+      </div>
+      <input type="text" class="search-input" placeholder="搜索">
+      <span class="close-search"><img src="/images/close-5aac04accb.svg" alt=""></span>
+    </div>
+    <div class="header-info pull-right">
+        <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
+        <span class="user-email"></span>
+        <span class="arr-down icon-48"></span>
+        <ul class="drop-menu clearfix">
+            <li class="drop-menu-item header-item-profile col-sm-6 text-center">
+                <a href="https://www.wilddog.com/info/info" class="header-item-link">
+                    <span class="header-item-icon icon-profile">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m281 366c-2 0-4-1-6-2-2-2-2-5-2-7l15-75c0-2 1-3 2-4l129-129c19-19 52-19 71 0 10 9 15 22 15 36 0 13-5 26-15 35l-128 129c-2 1-3 2-4 2l-76 15c0 0-1 0-1 0z m22-79l-12 61 61-12 127-127c7-6 10-15 10-24 0-10-3-19-10-25-13-13-36-13-49 0z m7 73c-3 0-6-2-7-5-1-4-4-8-8-11-3-4-7-6-11-8-4-2-6-6-4-10 1-4 6-6 10-5 6 3 12 7 17 12 4 4 8 10 11 17 1 4-1 8-5 10-1 0-2 0-3 0z m47-9c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 10 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m126-126c-4 0-8-3-8-7-2-14-8-26-18-36-10-10-23-16-38-18-4 0-7-4-6-9 0-4 4-7 8-6 18 2 34 9 47 22 12 12 20 28 22 45 1 4-2 8-6 9-1 0-1 0-1 0z m-234-118l-109 0c-5 0-8-3-8-7 0-5 3-8 8-8l109 0c4 0 8 3 8 8 0 4-4 7-8 7z m-55 184c-58 0-106-46-106-103l0-85c0-57 48-103 106-103 59 0 107 46 107 103l0 85c0 57-48 103-107 103z m0-275c-50 0-91 39-91 87l0 85c0 48 41 88 91 88 50 0 91-40 91-88l0-85c0-48-41-87-91-87z m187 489l-373 0c-5 0-8-3-8-7l0-117c0-70 59-127 131-127 5 0 8 3 8 8 0 4-3 7-8 7-64 0-115 50-115 112l0 109 357 0 0-109c0-5 4-8 8-8 4 0 8 3 8 8l0 117c0 4-4 7-8 7z"></path></svg>
+                    </span>
+                    <span class="header-item-title">个人中心</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-confirm col-sm-6 text-center">
+                <a href="https://www.wilddog.com/pay/trade-entry" class="header-item-link">
+                    <span class="header-item-icon icon-confirm">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m15 188l-15 0 0-114c0-23 19-42 42-42l257 0c23 0 42 19 42 42l0 66-15 0 0-66c0-15-12-27-27-27l-257 0c-15 0-27 12-27 27z m455 286l-428 0c-23 0-42-19-42-43l0-257c0-23 19-42 42-42l428 0c23 0 42 19 42 42l0 257c0 24-19 43-42 43z m-428-327c-15 0-27 12-27 27l0 257c0 15 12 28 27 28l428 0c15 0 27-13 27-28l0-257c0-15-12-27-27-27l-428 0z m378 195c-22 0-39-18-39-39 0-22 17-39 39-39 21 0 39 17 39 39 0 21-18 39-39 39z m0-63c-14 0-24 11-24 24 0 13 10 24 24 24 13 0 24-11 24-24 0-13-11-24-24-24z"></path></svg>
+                    </span>
+                    <span class="header-item-title">财务</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-doc col-sm-6 text-center">
+                <a href="https://docs.wilddog.com/overview/index.html" class="header-item-link">
+                    <span class="header-item-icon icon-icon-v-05">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m100 232l305 0 0 17-305 0z m0 82l305 0 0 17-305 0z m0 83l305 0 0 17-305 0z m152-380c22 0 42 13 50 33 3 6 9 10 16 10l18 0 0 59-167 0 0-59 18 0c6 0 13-4 15-10 9-20 29-33 50-33m0-17c-29 0-54 18-65 43l-35 0 0 93 201 0 0-93-35 0c-11-25-36-43-66-43z m174 503l-348 0c-43 0-78-35-78-78l0-276c0-44 35-79 78-79l48 0 0 17-48 0c-34 0-61 28-61 62l0 276c0 34 27 61 61 61l348 0c34 0 62-27 62-61l0-276c0-34-28-62-62-62l-47 0 0-17 47 0c44 0 79 35 79 79l0 276c0 43-35 78-79 78z"></path></svg>
+                    </span>
+                    <span class="header-item-title">文档</span>
+                </a>
+            </li>
+            <li class="drop-menu-item header-item-service col-sm-6 text-center">
+                <a href="https://www.wilddog.com/account/kf5" class="header-item-link">
+                    <span class="header-item-icon icon-service">
+                      <svg width="24" height="25" viewBox="0 0 512 512"><path d="m256 16c132 0 240 108 240 240 0 132-108 240-240 240-132 0-240-108-240-240 0-132 108-240 240-240m0-16c-141 0-256 115-256 256 0 141 115 256 256 256 141 0 256-115 256-256 0-141-115-256-256-256z m0 355c-4 0-8-4-8-8l0-24c0-35 10-54 44-78 24-15 36-35 36-59 0-36-32-64-72-64-40 0-72 29-72 64 0 5-3 8-8 8-4 0-8-3-8-8 0-44 39-80 88-80 49 0 88 35 88 80 0 30-14 54-43 72-29 22-37 35-37 65l0 24c0 4-4 8-8 8z m0 79c-4 0-8-3-8-8l0-37c0-4 4-8 8-8 4 0 8 4 8 8l0 37c0 5-4 8-8 8z"></path></svg>
+                    </span>
+                    <span class="header-item-title">客服工单</span>
+                </a>
+            </li>
+            <li class="drop-menu-item logout col-sm-12 text-center">
+                <a href="" class="header-item-link logout-btn">退出登录</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="header-user pull-right">
+        <li class="pull-left login-tab"><a href="" class="login">登录</a></li>
+        <li class="pull-right register-tab"><a href="" class="btn btn-org-empty register">免费注册</a></li>
+    </ul>
+  </div>
+</header>
+<div class="mask fadeHide"></div>
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">
+                  事件监听
+                  <span class="edit-doc-source">
+                    <a href="https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/guide/sync/android/retrieve-data.md" class="edit-doc-link" title="改进本文">
+                    <svg version="1.1" width="16px" height="16px" viewBox="200.38 -94.272 16 16">
+                      <path fill="#999999" class="github" d="M208.38-94.272c-4.42,0-8,3.671-8,8.202c0,3.63,2.29,6.695,5.47,7.782c0.4,0.072,0.55-0.174,0.55-0.39
+                      c0-0.195-0.01-0.841-0.01-1.528c-2.01,0.379-2.53-0.502-2.69-0.964c-0.09-0.236-0.48-0.964-0.82-1.159
+                      c-0.28-0.154-0.68-0.533-0.01-0.543c0.63-0.01,1.08,0.595,1.23,0.841c0.72,1.241,1.87,0.892,2.33,0.677
+                      c0.07-0.533,0.28-0.892,0.51-1.097c-1.78-0.205-3.64-0.913-3.64-4.05c0-0.892,0.31-1.63,0.82-2.204
+                      c-0.08-0.205-0.36-1.046,0.08-2.174c0,0,0.67-0.215,2.2,0.841c0.64-0.185,1.32-0.277,2-0.277s1.36,0.092,2,0.277
+                      c1.53-1.066,2.2-0.841,2.2-0.841c0.44,1.128,0.16,1.969,0.08,2.174c0.51,0.574,0.82,1.302,0.82,2.204c0,3.148-1.87,3.845-3.65,4.05
+                      c0.29,0.256,0.54,0.748,0.54,1.517c0,1.097-0.01,1.979-0.01,2.256c0,0.215,0.15,0.472,0.55,0.39c3.256-1.127,5.449-4.258,5.45-7.782
+                      C216.38-90.601,212.8-94.272,208.38-94.272z"/>
+                    </svg><span class="article-edit-link">编辑文档</span></a>
+                  </span>
+                </h1>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <p>事件监听是指通过事件触发的方式来获取云端变化的数据。通过监听云端事件，本地获取并处理数据，保持和数据实时同步。</p>
+<h2 id="事件" class="article-heading"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>数据在云端发生变化后会触发事件。</p>
+<p>事件包含以下五种：</p>
+<table>
+<thead>
+<tr>
+<th>事件类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onChildAdded()</td>
+<td>初始化监听或有新增子节点。</td>
+</tr>
+<tr>
+<td>onChildChanged()</td>
+<td>子节点数据发生更改。</td>
+</tr>
+<tr>
+<td>onChildRemoved()</td>
+<td>子节点被删除。</td>
+</tr>
+<tr>
+<td>onChildMoved()</td>
+<td>子节点排序发生变化。</td>
+</tr>
+<tr>
+<td>onDataChange()</td>
+<td>初始化监听或向指定节点及子节点数据发生变化。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="监听事件" class="article-heading"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h2><p>通过 Wilddog Sync 提供的方法，监听云端的事件，保持和云端实时同步。</p>
+<h3 id="设置监听" class="article-heading"><a href="#设置监听" class="headerlink" title="设置监听"></a>设置监听</h3><p><code>onDataChange()</code> 方法用于与事件配合来监听指定节点的数据。</p>
+<p>例如，通过 <code>onDataChange()</code> 事件监听 <code>Jobs</code> 节点下的数据：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ValueEventListener postListener = <span class="keyword">new</span> ValueEventListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDataChange</span><span class="params">(DataSnapshot dataSnapshot)</span> </span>&#123;</div><div class="line">        String fullName = (String) snapshot.child(<span class="string">"full_name"</span>).getValue();</div><div class="line">        String gender = (String) snapshot.child(<span class="string">"gender"</span>).getValue();</div><div class="line">        System.out.println(fullName + <span class="string">" 性别为"</span> + gender);</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError syncError)</span> </span>&#123;</div><div class="line">        <span class="comment">// 获取数据失败，打印错误信息。</span></div><div class="line">        Log.w(TAG, <span class="string">"loadPost:onCancelled"</span>, syncError.toString());</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">SyncReference postReference = mSyncRef.child(<span class="string">"/web/saving-data/wildblog/users/Jobs"</span>);</div><div class="line">mPostReference.addValueEventListener(postListener);</div></pre></td></tr></table></figure>
+<p>之后 Jobs 节点下的数据发生任何变化，都会触发回调方法。</p>
+<p>例如，<a href="https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts" target="_blank" rel="external">博客应用</a> 中，通过 Child 事件来监听博客的状态变化：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 获取 SyncReference 实例</span></div><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"web/saving-data/wildblog/posts"</span>);</div><div class="line"><span class="comment">// 设置监听</span></div><div class="line">ChildEventListener listener = ref.addChildEventListener(<span class="keyword">new</span> ChildEventListener()&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String author = (String) snapshot.child(<span class="string">"author"</span>).getValue();</div><div class="line">        String title = (String) snapshot.child(<span class="string">"title"</span>).getValue();</div><div class="line">        System.out.println(author + <span class="string">" 发布了一篇名为《"</span> + title + <span class="string">"》的博客"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String author = (String) snapshot.child(<span class="string">"author"</span>).getValue();</div><div class="line">        String title = (String) snapshot.child(<span class="string">"title"</span>).getValue();</div><div class="line">        System.out.println(author + <span class="string">" 更新博客标题为《"</span> + title + <span class="string">"》"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String author = (String) snapshot.child(<span class="string">"author"</span>).getValue();</div><div class="line">        String title = (String) snapshot.child(<span class="string">"title"</span>).getValue();</div><div class="line">        System.out.println(<span class="string">"博客《"</span> + title + <span class="string">"》被删除"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot snapshot)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError error)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>更详细的用法说明，请参考 <a href="/api/sync/android/Query.html">API 文档</a>。</p>
+<blockquote class="notice"><br>  <p><strong>提示：</strong></p><br>  如果你只想监听一次数据，可使用<code>addListenerForSingleValueEvent()</code>方法。该监听的回调方法只被触发一次，之后会自动取消监听。<br></blockquote>
+
+<h3 id="移除监听" class="article-heading"><a href="#移除监听" class="headerlink" title="移除监听"></a>移除监听</h3><p><code>removeEventListener()</code> 方法用于移除指定事件。移除监听之后，事件回调方法将不会被触发。</p>
+<p>参数为移除的事件类型和回调方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 获取 SyncReference 实例</span></div><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"web/saving-data/wildblog/posts"</span>);</div><div class="line"><span class="comment">// 移除监听</span></div><div class="line">ref.removeEventListener(listener);</div></pre></td></tr></table></figure>
+<blockquote class="warning"><br>  <p><strong>注意：</strong></p><br>  在父节点上调用 <code>removeEventListener()</code> 时不会移除在其子节点上添加的监听。<br></blockquote>
+
+<h2 id="条件监听" class="article-heading"><a href="#条件监听" class="headerlink" title="条件监听"></a>条件监听</h2><p>Wilddog Sync 支持对事件监听设置条件：数据排序或数据筛选。</p>
+<h3 id="根据数据排序监听" class="article-heading"><a href="#根据数据排序监听" class="headerlink" title="根据数据排序监听"></a>根据数据排序监听</h3><p>Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。</p>
+<p>数据排序包含以下四种方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderByChild()</td>
+<td>按指定子节点的值（value）对结果排序。</td>
+</tr>
+<tr>
+<td>orderByKey()</td>
+<td>按节点的键（key）对结果排序。</td>
+</tr>
+<tr>
+<td>orderByValue()</td>
+<td>按节点的值（value）对结果排序。</td>
+</tr>
+<tr>
+<td>orderByPriority()</td>
+<td>按节点的优先级（priority）对结果排序。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>orderByChild</strong></p>
+<p><code>orderByChild()</code>方法用于按子节点的指定值（value）对结果排序。</p>
+<p>例如，在 <a href="https://class-demo.wilddogio.com" target="_blank" rel="external">班级示例应用</a> 中按照每个学生的身高（”height” 节点的值）进行排序：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 初始化</span></div><div class="line">WilddogOptions wilddogOptions = <span class="keyword">new</span> WilddogOptions.Builder().setSyncUrl(<span class="string">"https://class-demo.wilddogio.com"</span>).build();</div><div class="line">WilddogApp.initializeApp(<span class="keyword">this</span>,wilddogOptions);</div><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"students"</span>);</div><div class="line">Query queryRef = ref.orderByChild(<span class="string">"height"</span>);</div><div class="line"></div><div class="line">queryRef.addChildEventListener(<span class="keyword">new</span> ChildEventListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String height = snapshot.child(<span class="string">"height"</span>).getValue().toString();</div><div class="line">        System.out.println(snapshot.getKey() + <span class="string">" was "</span> + height + <span class="string">" centimeters tall"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>orderByKey()</strong></p>
+<p><code>orderByKey()</code>方法用于按节点的键（key）对结果排序。</p>
+<p>例如，在 <a href="https://class-demo.wilddogio.com" target="_blank" rel="external">班级示例应用</a> 中按照学生的名称进行排序：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">WilddogOptions wilddogOptions = <span class="keyword">new</span> WilddogOptions.Builder().setSyncUrl(<span class="string">"https://class-demo.wilddogio.com"</span>).build();</div><div class="line">WilddogApp.initializeApp(<span class="keyword">this</span>,wilddogOptions);</div><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"students"</span>);</div><div class="line">Query queryRef = ref.orderByKey();</div><div class="line"></div><div class="line">queryRef.addChildEventListener(<span class="keyword">new</span> ChildEventListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String height = snapshot.child(<span class="string">"height"</span>).getValue().toString();</div><div class="line">        System.out.println(snapshot.getKey());</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>orderByValue()</strong></p>
+<p><code>orderByValue()</code>方法用于按节点的值（value）对结果排序。</p>
+<p>例如，在 <a href="https://class-demo.wilddogio.com/scores" target="_blank" rel="external">得分示例应用</a> 中按照得分数据进行排序：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">WilddogOptions wilddogOptions = <span class="keyword">new</span> WilddogOptions.Builder().setSyncUrl(<span class="string">"https://class-demo.wilddogio.com"</span>).build();</div><div class="line">WilddogApp.initializeApp(<span class="keyword">this</span>,wilddogOptions);</div><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"scores"</span>);</div><div class="line">Query queryRef = ref.orderByValue();</div><div class="line"></div><div class="line">queryRef.addChildEventListener(<span class="keyword">new</span> ChildEventListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String height = snapshot.child(<span class="string">"height"</span>).getValue().toString();</div><div class="line">        System.out.println(<span class="string">"The "</span> + snapshot.getKey() + <span class="string">" student's score is "</span> + snapshot.getValue());</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>orderByPriority()</strong></p>
+<p><code>orderByPriority()</code>方法用于按节点的优先级（priority）对结果排序。</p>
+<blockquote class="warning"><br>  <p><strong>注意：</strong></p><br>  <ul><br>    <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li><br>    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 <a href="/guide/sync/rules/introduce.html#indexOn">.indexOn</a> 规则，在服务器上添加索引以提高排序效率。详细请参考 <a href="/guide/sync/rules/guide.html#数据索引">添加索引</a>。</li><br>  </ul><br></blockquote>
+
+<h3 id="根据数据筛选结果监听" class="article-heading"><a href="#根据数据筛选结果监听" class="headerlink" title="根据数据筛选结果监听"></a>根据数据筛选结果监听</h3><p>对数据排序之后，才能进行数据筛选。</p>
+<p>数据筛选包含以下五种方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limitToFirst()</td>
+<td>设置从第一条开始，一共返回多少个节点。</td>
+</tr>
+<tr>
+<td>limitToLast()</td>
+<td>设置从最后一条开始，一共返回多少个节点（返回结果仍是升序，降序要自己处理）。</td>
+</tr>
+<tr>
+<td>startAt()</td>
+<td>返回大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。</td>
+</tr>
+<tr>
+<td>endAt()</td>
+<td>返回小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。</td>
+</tr>
+<tr>
+<td>equalTo()</td>
+<td>返回等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。</td>
+</tr>
+</tbody>
+</table>
+<p>你可以结合不同的方法来筛选数据。例如，结合 <code>startAt()</code> 方法与 <code>endAt()</code> 方法将结果限制在指定的范围内。</p>
+<p><strong>数量筛选</strong></p>
+<p><code>limitToFirst()</code>方法用于获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。</p>
+<p> <code>limitToLast()</code>方法用于获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。</p>
+<p>例如，在 <a href="https://class-demo.wilddogio.com" target="_blank" rel="external">班级示例应用</a> 中，如果你只想知道最高的是哪三位同学：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"students"</span>);</div><div class="line">Query queryRef = ref.orderByChild(<span class="string">"height"</span>);</div><div class="line">queryRef.limitToLast(<span class="number">3</span>).addChildEventListener(<span class="keyword">new</span> ChildEventListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String height = snapshot.child(<span class="string">"height"</span>).getValue().toString();</div><div class="line">        System.out.println(snapshot.getKey() + <span class="string">" was "</span> + height + <span class="string">" centimeters tall "</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果使用 <code>limitToFirst(100)</code> 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 <code>child_added</code> 事件。对于从前 100 个中消失的节点，你会接收到 <code>child_removed</code> 事件。</p>
+<p><strong>范围筛选</strong></p>
+<p><code>startAt()</code>方法、<code>endAt()</code>方法 和 <code>equalTo()</code> 方法用于监听选择任意起点、终点或等量点。</p>
+<p> 例如，在 <a href="https://class-demo.wilddogio.com" target="_blank" rel="external">班级示例应用</a> 中，如果你只想知道哪些学生的考分超过 60：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SyncReference ref = WilddogSync.getInstance().getReference(<span class="string">"scores"</span>);</div><div class="line">Query queryRef = ref.orderByValue();</div><div class="line">queryRef.startAt(<span class="number">60</span>).addChildEventListener(<span class="keyword">new</span> ChildEventListener() &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildAdded</span><span class="params">(DataSnapshot snapshot, String ref)</span> </span>&#123;</div><div class="line">        String score = snapshot.getValue().toString();</div><div class="line">        System.out.println(snapshot.getKey() + <span class="string">" is "</span> + score);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(SyncError arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildChanged</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildMoved</span><span class="params">(DataSnapshot arg0, String arg1)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChildRemoved</span><span class="params">(DataSnapshot arg0)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote class="warning"><br>  <p><strong>注意：</strong></p><br>  范围筛选中，当节点的 value 相同时，会按照 key 进行排序。<br></blockquote>
+
+<p>范围筛选可用于<strong>数据分页</strong>和<strong>精确查询</strong>。关于分页的具体实现，请参考 <a href="https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination" target="_blank" rel="external">如何实现分页</a>。</p>
+
+                <time class="article-footer-updated" datetime="2017-03-03T08:18:34.846Z" itemprop="dateModified">上次更新：2017-03-03</time>
+              </div>
+              <div class="toc-content">
+                <aside id="article-toc" role="navigation">
+                  <div class="toc-scroll-content">
+                    <div class="toc-inner">
+                      <span class="slide-dot"></span>
+                      <div id="article-toc-inner">
+                        <strong class="sidebar-title">目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监听事件"><span class="toc-text">监听事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置监听"><span class="toc-text">设置监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除监听"><span class="toc-text">移除监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件监听"><span class="toc-text">条件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#根据数据排序监听"><span class="toc-text">根据数据排序监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据数据筛选结果监听"><span class="toc-text">根据数据筛选结果监听</span></a></li></ol></li></ol>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+                <div class="toc-link-title"></div>
+              </div>
+              <footer class="article-footer">
+                <a href="/guide/sync/android/save-data.html" class="article-footer-prev" title="数据操作"><img src='/images/arr-left-1b2a378a2f.svg' class='arr-icon'><div class='page-title'><div>上一节：</div>数据操作 </div></a><a href="/guide/sync/android/offline-capabilities.html" class="article-footer-next" title="离线功能"><div class='page-title'><div class='text-right'>下一节：</div>离线功能</div><img src='/images/arr-right-e4720f74a4.svg' class='arr-icon'></a>
+              </footer>
+              <div class="novice novice-register text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">野狗新手？</div>
+                <div class="register-text">立即注册，为你提供安全可靠的实时通信云服务。</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/my-account/signup?next=https://docs.wilddog.com" class="btn btn-org-full register-link">免费注册</a>
+                </div>
+              </div>
+              <div class="novice novice-help text-center">
+                <span class="close-novice"></span>
+                <img src="/images/light-ed7f0e1887.svg" width="52" height="56" alt="" class="light">
+                <div class="novice-title">没找到需要的文档？</div>
+                <div class="register-text">你可以提交工单反馈 或 阅读常见问题</div>
+                <div class="btn-group">
+                  <a href="https://www.wilddog.com/account/kf5" target="_blank" class="btn btn-org-empty service-link">客服工单</a><a href="https://wilddog.kf5.com/hc" target="_blank" class="btn btn-gray question-link">常见问题</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+  <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="sidebar-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/concept.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/web/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/web/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/web/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/web/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title select">Android</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/android/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/android/retrieve-data.html" class="sidebar-link current" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/android/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/android/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/ios/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/advance-feature.html" class="sidebar-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">C/嵌入式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/c/config-and-porting.html" class="sidebar-link" title= 配置和移植><span class="sidebar-link-text">配置和移植</span></a></li><li class='sublist-item'><a href="/guide/sync/c/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/c/retrieve-data.html" class="sidebar-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/c/offline-capabilities.html" class="sidebar-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rest/save-data.html" class="sidebar-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/retrieve-data.html" class="sidebar-link" title= 数据查询><span class="sidebar-link-text">数据查询</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/library.html" class="sidebar-link" title= 其他平台><span class="sidebar-link-text">其他平台</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">规则表达式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rules/introduce.html" class="sidebar-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/guide.html" class="sidebar-link" title= 指南><span class="sidebar-link-text">指南</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/access.html" class="sidebar-link" title= 读写权限控制><span class="sidebar-link-text">读写权限控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/auth.html" class="sidebar-link" title= 用户访问控制><span class="sidebar-link-text">用户访问控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/validate.html" class="sidebar-link" title= 数据校验><span class="sidebar-link-text">数据校验</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/index.html" class="sidebar-link" title= 数据索引><span class="sidebar-link-text">数据索引</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/webhook.html" class="sidebar-link" title= Webhook><span class="sidebar-link-text">Webhook</span></a><li class='sublist-item'><strong class="sidebar-title">最佳实践</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/bestpractice/structure-data.html" class="sidebar-link" title= 组织数据><span class="sidebar-link-text">组织数据</span></a></li><li class='sublist-item'><a href="/guide/sync/bestpractice/offline.html" class="sidebar-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/data-limit.html" class="sidebar-link" title= 数据限制><span class="sidebar-link-text">数据限制</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/core.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/web/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/web/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/web/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/android/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/android/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/android/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/ios/install-sdk.html" class="sidebar-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conversation.html" class="sidebar-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conference.html" class="sidebar-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/android/intialize.html" class="sidebar-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/android/users.html" class="sidebar-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/android/message.html" class="sidebar-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/android/unread.html" class="sidebar-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/android/group.html" class="sidebar-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/android/push.html" class="sidebar-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/ios/intialize.html" class="sidebar-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/ios/users.html" class="sidebar-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/ios/message.html" class="sidebar-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/ios/unread.html" class="sidebar-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/ios/group.html" class="sidebar-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/ios/push.html" class="sidebar-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sms/vertification.html" class="sidebar-link" title= 验证码短信><span class="sidebar-link-text">验证码短信</span></a><li class='sublist-item'><a href="/guide/sms/notify.html" class="sidebar-link" title= 通知类短信><span class="sidebar-link-text">通知类短信</span></a><li class='sublist-item'><a href="/guide/sms/signature.html" class="sidebar-link" title= 接口验证机制><span class="sidebar-link-text">接口验证机制</span></a></ul></li><li class='sidebar-nav-item'><strong class="sidebar-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/core/concept.html" class="sidebar-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="sidebar-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/web/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/web/phone.html" class="sidebar-link" title= 手机登录><span class="sidebar-link-text">手机登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixinpublic.html" class="sidebar-link" title= 微信公众号登录><span class="sidebar-link-text">微信公众号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/android/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/android/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/phone.html" class="sidebar-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/ios/manageuser.html" class="sidebar-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/phone.html" class="sidebar-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/password.html" class="sidebar-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/qq.html" class="sidebar-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weixin.html" class="sidebar-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weibo.html" class="sidebar-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/custom.html" class="sidebar-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/anonymous.html" class="sidebar-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/link.html" class="sidebar-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="sidebar-title">Server</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/server/introduction.html" class="sidebar-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/auth/server/server.html" class="sidebar-link" title= 使用 Server SDK 进行认证><span class="sidebar-link-text">使用 Server SDK 进行认证</span></a></li></ul></li></li></ul></li></ul>
+  <div class="old-doc"><a href="https://z.wilddog.com/overview/introduction?_ga=1.201538585.947321584.1476265715" class="old-doc-link">回到旧版文档<span class="back-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9.715" height="9.078" viewBox="0 0 9.715 9.078"><defs><path id="a" d="M0 0h9.715v9.078H0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.365.35v5.624H.741"/><path clip-path="url(#b)" fill="none" stroke="#666" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.104 8.728L.35 5.974l2.754-2.755"/></svg></span></a></div>
+  </div>
+</aside>
+    </div>
+    <div class="back-top-content">
+      <div class="back-top"></div>
+    </div>
+  </div>
+</div>
+<div class="feed-back">
+  <img src="/images/feed-bg-3b9131ccb1.svg" class="feed-bg" alt="">
+  <div class="feed-content">
+    <div class="feed-text-content clearfix">
+      <img src="/images/feed-icon-af0ea8c62e.svg" alt="">
+      <span class="feed-text">期待收到你的反馈，帮助我们改进文档。</span>
+    </div>
+    <a href="https://www.wenjuan.com/s/jQN7Bj/" target='_blank' class="feed-link">参与调研</a>
+  </div>
+  <span class="close-feed"><img src="/images/close-5aac04accb.svg" alt=""></span>
+</div>
+<!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/public-83c5dacb8d.js"></script>
+<script src="/js/localstorage-c4e8573405.js"></script>
+<script src="/js/toc-9ea2afca1c.js"></script>
+<script src="/js/mobile_nav-0e25d5740c.js"></script>
+<script src="/js/ui-4870e10579.js"></script>
+<script src="/js/search-b5357de5c7.js"></script>
+<!-- endbuild -->
+
+<!-- Google Tag Manager -->
+<script>
+window.addEventListener('load', function() {
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.wilddog.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-53PGC2');
+})
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Algolia -->
+<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
+
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+  <!--   <div id="footer-copyright">
+    &copy; 2017 <a href="https://www.wilddog.com/" target="_blank">野狗</a><br>
+  </div> -->
+    <div id="footer-links">
+		<a href="/overview/index.html" class="footer-link">文档</a>
+		<a href="https://www.wilddog.com/download" class="footer-link">SDK下载</a>
+		<a href="https://www.wilddog.com/product/pricing" class="footer-link">价格</a>
+		<a href="https://life.wilddog.com/wilddog-contact.html" class="footer-link">联系我们</a>
+		<a href="https://wilddog.kf5.com/user/login/?_ga=1.257821899.1360428381.1464868258" class="footer-link">客服工单</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      
+      <li class="mobile-nav-item">
+        <a href="https://github.com/" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <ul class='sidebar-nav'><li class='sidebar-nav-item'><strong class="mobile-nav-title current select">实时通信引擎</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/concept.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/web/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/web/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/web/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/web/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title select">Android</strong><ul class='sublist current'><li class='sublist-item'><a href="/guide/sync/android/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/android/retrieve-data.html" class="mobile-nav-link current" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/android/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/android/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/ios/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li><li class='sublist-item'><a href="/guide/sync/ios/advance-feature.html" class="mobile-nav-link" title= 高级特性><span class="sidebar-link-text">高级特性</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">C/嵌入式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/c/config-and-porting.html" class="mobile-nav-link" title= 配置和移植><span class="sidebar-link-text">配置和移植</span></a></li><li class='sublist-item'><a href="/guide/sync/c/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/c/retrieve-data.html" class="mobile-nav-link" title= 事件监听><span class="sidebar-link-text">事件监听</span></a></li><li class='sublist-item'><a href="/guide/sync/c/offline-capabilities.html" class="mobile-nav-link" title= 离线功能><span class="sidebar-link-text">离线功能</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">REST</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rest/save-data.html" class="mobile-nav-link" title= 数据操作><span class="sidebar-link-text">数据操作</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/retrieve-data.html" class="mobile-nav-link" title= 数据查询><span class="sidebar-link-text">数据查询</span></a></li><li class='sublist-item'><a href="/guide/sync/rest/library.html" class="mobile-nav-link" title= 其他平台><span class="sidebar-link-text">其他平台</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">规则表达式</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/rules/introduce.html" class="mobile-nav-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/guide.html" class="mobile-nav-link" title= 指南><span class="sidebar-link-text">指南</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/access.html" class="mobile-nav-link" title= 读写权限控制><span class="sidebar-link-text">读写权限控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/auth.html" class="mobile-nav-link" title= 用户访问控制><span class="sidebar-link-text">用户访问控制</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/validate.html" class="mobile-nav-link" title= 数据校验><span class="sidebar-link-text">数据校验</span></a></li><li class='sublist-item'><a href="/guide/sync/rules/index.html" class="mobile-nav-link" title= 数据索引><span class="sidebar-link-text">数据索引</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/webhook.html" class="mobile-nav-link" title= Webhook><span class="sidebar-link-text">Webhook</span></a><li class='sublist-item'><strong class="mobile-nav-title">最佳实践</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sync/bestpractice/structure-data.html" class="mobile-nav-link" title= 组织数据><span class="sidebar-link-text">组织数据</span></a></li><li class='sublist-item'><a href="/guide/sync/bestpractice/offline.html" class="mobile-nav-link" title= 离线事件><span class="sidebar-link-text">离线事件</span></a></li></ul></li></li><li class='sublist-item'><a href="/guide/sync/data-limit.html" class="mobile-nav-link" title= 数据限制><span class="sidebar-link-text">数据限制</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">实时视频通话</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/core.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/web/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/web/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/web/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/android/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/android/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/android/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/video/ios/install-sdk.html" class="mobile-nav-link" title= 安装和初始化 SDK><span class="sidebar-link-text">安装和初始化 SDK</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conversation.html" class="mobile-nav-link" title= 视频通话><span class="sidebar-link-text">视频通话</span></a></li><li class='sublist-item'><a href="/guide/video/ios/conference.html" class="mobile-nav-link" title= 多人视频会议><span class="sidebar-link-text">多人视频会议</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">即时通讯</strong><ul class='sublist'><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/android/intialize.html" class="mobile-nav-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/android/users.html" class="mobile-nav-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/android/message.html" class="mobile-nav-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/android/unread.html" class="mobile-nav-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/android/group.html" class="mobile-nav-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/android/push.html" class="mobile-nav-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/im/ios/intialize.html" class="mobile-nav-link" title= 初始化><span class="sidebar-link-text">初始化</span></a></li><li class='sublist-item'><a href="/guide/im/ios/users.html" class="mobile-nav-link" title= 用户集成><span class="sidebar-link-text">用户集成</span></a></li><li class='sublist-item'><a href="/guide/im/ios/message.html" class="mobile-nav-link" title= 收发消息><span class="sidebar-link-text">收发消息</span></a></li><li class='sublist-item'><a href="/guide/im/ios/unread.html" class="mobile-nav-link" title= 未读消息计数><span class="sidebar-link-text">未读消息计数</span></a></li><li class='sublist-item'><a href="/guide/im/ios/group.html" class="mobile-nav-link" title= 讨论组管理><span class="sidebar-link-text">讨论组管理</span></a></li><li class='sublist-item'><a href="/guide/im/ios/push.html" class="mobile-nav-link" title= 离线推送><span class="sidebar-link-text">离线推送</span></a></li></ul></li></li></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">短信</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/sms/vertification.html" class="mobile-nav-link" title= 验证码短信><span class="sidebar-link-text">验证码短信</span></a><li class='sublist-item'><a href="/guide/sms/notify.html" class="mobile-nav-link" title= 通知类短信><span class="sidebar-link-text">通知类短信</span></a><li class='sublist-item'><a href="/guide/sms/signature.html" class="mobile-nav-link" title= 接口验证机制><span class="sidebar-link-text">接口验证机制</span></a></ul></li><li class='sidebar-nav-item'><strong class="mobile-nav-title">身份认证</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/core/concept.html" class="mobile-nav-link" title= 基础概念><span class="sidebar-link-text">基础概念</span></a><li class='sublist-item'><strong class="mobile-nav-title">Web</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/web/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/web/phone.html" class="mobile-nav-link" title= 手机登录><span class="sidebar-link-text">手机登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weixinpublic.html" class="mobile-nav-link" title= 微信公众号登录><span class="sidebar-link-text">微信公众号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/web/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/web/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Android</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/android/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/android/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/phone.html" class="mobile-nav-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/android/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/android/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">iOS</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/ios/manageuser.html" class="mobile-nav-link" title= 管理用户><span class="sidebar-link-text">管理用户</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/phone.html" class="mobile-nav-link" title= 手机号登录><span class="sidebar-link-text">手机号登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/password.html" class="mobile-nav-link" title= 邮箱登录><span class="sidebar-link-text">邮箱登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/qq.html" class="mobile-nav-link" title= QQ 登录><span class="sidebar-link-text">QQ 登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weixin.html" class="mobile-nav-link" title= 微信登录><span class="sidebar-link-text">微信登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/weibo.html" class="mobile-nav-link" title= 微博登录><span class="sidebar-link-text">微博登录</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/custom.html" class="mobile-nav-link" title= 自定义身份认证><span class="sidebar-link-text">自定义身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/anonymous.html" class="mobile-nav-link" title= 匿名身份认证><span class="sidebar-link-text">匿名身份认证</span></a></li><li class='sublist-item'><a href="/guide/auth/ios/link.html" class="mobile-nav-link" title= 绑定多种登录方式><span class="sidebar-link-text">绑定多种登录方式</span></a></li></ul></li></li><li class='sublist-item'><strong class="mobile-nav-title">Server</strong><ul class='sublist'><li class='sublist-item'><a href="/guide/auth/server/introduction.html" class="mobile-nav-link" title= 简介><span class="sidebar-link-text">简介</span></a></li><li class='sublist-item'><a href="/guide/auth/server/server.html" class="mobile-nav-link" title= 使用 Server SDK 进行认证><span class="sidebar-link-text">使用 Server SDK 进行认证</span></a></li></ul></li></li></ul></li></ul>
+    
+  </div>
+
+</nav>
+</body>
+</html>
